@@ -1,14 +1,16 @@
 package com.example.withmehome
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.withmehome.databinding.FragmentHobbyBinding
 
-class HobbyFragment:Fragment(){
+class HobbyFragment:Fragment(), View.OnClickListener{
     private lateinit var binding: FragmentHobbyBinding
     private lateinit var adapter: RecyclerItemAdapter
 
@@ -24,6 +26,12 @@ class HobbyFragment:Fragment(){
         binding!!.recyclerViewhobby.layoutManager = LinearLayoutManager(activity)
 
         return binding.root
+        val WriteRecruitmentActivity = layoutInflater.inflate(R.layout.fragment_hobby,container, false)
+        val btn_event= WriteRecruitmentActivity.findViewById<Button>(R.id.hobby)
+        btn_event.setOnClickListener{
+            val intent = Intent(getActivity(), WriteRecruitmentActivity::class.java)
+            startActivity(intent)
+        }
     }
     fun loadData(): List<Userdata>{
         val list = mutableListOf<Userdata>()
@@ -32,5 +40,23 @@ class HobbyFragment:Fragment(){
             list.add(data)
         }
         return list
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnClickListener()
+    }
+    private fun setOnClickListener(){
+        val hobbySequence = binding.hobby.setOnClickListener(this)
+    }
+
+    override fun onClick(p0: View?) {
+        if (p0 != null) {
+            when (p0.id) {
+                R.id.hobby -> {
+                    val intent = Intent(activity, WriteRecruitmentActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
     }
 }
