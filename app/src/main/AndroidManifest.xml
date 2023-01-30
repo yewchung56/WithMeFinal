@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-   <!-- 지도, 동네인증시 사용 권한-->
+    <!-- 지도, 동네인증시 사용 권한 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -15,8 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Withmehome"
         tools:targetApi="31">
-
-        <!--구글지도 api key-->
+        <activity
+            android:name=".NicknameSetActivity"
+            android:exported="false" />
+        <!-- 구글지도 api key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDjHOWcMcgJ52COZT-tZBddN-N_4AYMa-E" />
@@ -26,23 +27,20 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".NaviActivity"
             android:exported="false"
-            android:parentActivityName=".MapsActivity">
-        </activity>
-
+            android:parentActivityName=".MapsActivity"></activity>
         <activity
             android:name=".WriteRecruitmentActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>
