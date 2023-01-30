@@ -26,6 +26,22 @@
             android:value="AIzaSyCJXhM_z8-RuMgMnC518aM-R6jX6ZLPB6g" />
 
         <activity
+            android:name=".recruitment_detail_leader"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".recruitment_detail_deadline"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+
+        <activity
             android:name=".MapsActivity"
             android:exported="true">
             <intent-filter>

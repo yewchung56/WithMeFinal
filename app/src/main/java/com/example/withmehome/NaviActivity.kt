@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.withmehome.databinding.ActivityNaviBinding
 
-private const val TAG_HOME = "home_fragment"
+private const val TAG_HOME = "main_activity"
 private const val TAG_HISTORY = "history_fragment"
 private const val TAG_NOTE = "note_fragment"
 private const val TAG_MYPG = "mypg_fragement"
