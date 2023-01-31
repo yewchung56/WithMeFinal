@@ -27,6 +27,11 @@ class RecruitmentDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recruitment_detail)
 
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.framelayoutrecruit, RecruitFragment())
+            .commitAllowingStateLoss()
+
         val sharedPreference = getSharedPreferences("RecruitmentDetail", MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreference.edit()
 

@@ -5,28 +5,26 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
-import com.example.withmehome.databinding.FragmentMeetmainBinding
+import com.example.withmehome.databinding.ActivityMeetmainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class MeetmainFragment:Fragment() {
+class MeetmainActivity:AppCompatActivity() {
 
-    private lateinit var binding: FragmentMeetmainBinding
+    private lateinit var binding: ActivityMeetmainBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentMeetmainBinding.inflate(inflater, container,false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMeetmainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         initViewPager()
-        return binding.root
     }
+
 
     private fun initViewPager(){
         //ViewPager2 Adapter 셋팅
-        val viewPager2Adatper = ViewPager2Adapter(activity)
+        var viewPager2Adatper = ViewPager2Adapter(this)
         viewPager2Adatper.addFragment(NowFragment())
         viewPager2Adatper.addFragment(LastFragment())
 
