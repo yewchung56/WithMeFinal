@@ -22,7 +22,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     setFragment(TAG_HOME, HomeFragment())
 
-    binding.navigationView.setOnItemSelectedListener { item ->
+    /*binding.navigationView.setOnItemSelectedListener { item ->
         when (item.itemId) {
             R.id.homeFragment -> setFragment(TAG_HOME, HomeFragment())
             R.id.historyFragment -> setFragment(TAG_HISTORY, HistoryFragment())
@@ -30,7 +30,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
             R.id.mypgFragment -> setFragment(TAG_MYPG, MypgFragment())
         }
         true
-    }
+    }*/
 }
 
 private fun setFragment(tag: String, fragment: Fragment) {

@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/home"
         android:title="홈화면"
         android:icon="@drawable/ic_home_pressed" />
     <item
-        android:id="@+id/historyFragment"
+        android:id="@+id/history"
         android:title="모임기록화면"
         android:icon="@drawable/ic_history_pressed"/>
     <item
-        android:id="@+id/noteFragment"
+        android:id="@+id/note"
         android:title="쪽지함"
         android:icon="@drawable/ic_note_pressed"/>
     <item
-        android:id="@+id/mypgFragment"
+        android:id="@+id/mypg"
         android:title="마이페이지"
         android:icon="@drawable/ic_mypg_pressed"/>
 
