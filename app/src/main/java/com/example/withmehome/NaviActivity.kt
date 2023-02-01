@@ -1,80 +1,50 @@
 package com.example.withmehome
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.withmehome.databinding.ActivityNaviBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-private const val TAG_HOME = "main_activity"
-private const val TAG_HISTORY = "history_fragment"
-private const val TAG_NOTE = "note_fragment"
-private const val TAG_MYPG = "mypg_fragement"
 
 class NaviActivity : AppCompatActivity() {
-private lateinit var binding: ActivityNaviBinding
+    private lateinit var binding: ActivityNaviBinding
+    var bottomNavigationView: BottomNavigationView? = null
 
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding = ActivityNaviBinding.inflate(layoutInflater)
-    setContentView(binding.root)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityNaviBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    setFragment(TAG_HOME, HomeFragment())
-
-    /*binding.navigationView.setOnItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.homeFragment -> setFragment(TAG_HOME, HomeFragment())
-            R.id.historyFragment -> setFragment(TAG_HISTORY, HistoryFragment())
-            R.id.noteFragment -> setFragment(TAG_NOTE, NoteFragment())
-            R.id.mypgFragment -> setFragment(TAG_MYPG, MypgFragment())
-        }
-        true
-    }*/
-}
-
-private fun setFragment(tag: String, fragment: Fragment) {
-    val manager: FragmentManager = supportFragmentManager
-    val fragTransaction = manager.beginTransaction()
-
-    if (manager.findFragmentByTag(tag) == null) {
-        fragTransaction.add(R.id.mainFrameLayout, fragment, tag)
+        bottomNavigationView = findViewById(R.id.navigationView)
+        bottomNavigationView?.setSelectedItemId(R.id.home)
+        bottomNavigationView?.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.history -> {
+                    startActivity(Intent(applicationContext, HistoryActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.home -> {
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.note -> {
+                    startActivity(Intent(applicationContext, NoteActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.mypg -> {
+                    startActivity(Intent(applicationContext, MypgActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
+        })
     }
-    val home = manager.findFragmentByTag(TAG_HOME)
-    val history = manager.findFragmentByTag(TAG_HISTORY)
-    val note = manager.findFragmentByTag(TAG_NOTE)
-    val mypg = manager.findFragmentByTag(TAG_MYPG)
-
-    if (home != null) {
-        fragTransaction.hide(home)
-    }
-    if (history != null) {
-        fragTransaction.hide(history)
-    }
-    if (note != null) {
-        fragTransaction.hide(note)
-    }
-    if (mypg != null) {
-        fragTransaction.hide(mypg)
-    }
-    if (tag == TAG_HOME) {
-        if (home != null) {
-            fragTransaction.show(home)
-        }
-    } else if (tag == TAG_HISTORY) {
-        if (history != null) {
-            fragTransaction.show(history)
-        }
-    } else if (tag == TAG_NOTE) {
-        if (note != null) {
-            fragTransaction.show(note)
-        }
-    } else if (tag == TAG_MYPG) {
-        if (mypg != null) {
-            fragTransaction.show(mypg)
-        }
-    }
-    fragTransaction.commitAllowingStateLoss()
-}
-
 }

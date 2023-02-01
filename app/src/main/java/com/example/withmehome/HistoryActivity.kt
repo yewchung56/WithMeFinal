@@ -27,7 +27,7 @@ class HistoryActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.home ->{
-                    startActivity(Intent(applicationContext, HomeActivity::class.java))
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }

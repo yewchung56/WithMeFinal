@@ -16,4 +16,8 @@
     <string name="recruitment_detail_personnel">4~6명</string>
     <string name="recruitment_detail_link">https://open.kakao.com/kdjfdkfj1</string>
     <string name="recruitment_detail_heart_number">13</string>
+
+
+    <string name="kakao_app_key">49ef6edfbf96118d95cfd6f0754d9ead</string>
+    <string name="kakao_native_key">kakao49ef6edfbf96118d95cfd6f0754d9ead</string>
 </resources>

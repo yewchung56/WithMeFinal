@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.viewpager2.widget.ViewPager2
 import com.example.withmehome.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -13,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val keyHash = Utility.getKeyHash(this)
+        Log.d("Hash", keyHash)
 
         initViewPager()
     }

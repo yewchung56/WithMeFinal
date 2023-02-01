@@ -51,6 +51,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.fragment:fragment:1.4.1'
+    implementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -58,5 +60,7 @@ dependencies {
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.0'
+    implementation "com.kakao.sdk:v2-user:2.5.0" // 카카오 로그인
 
 }
