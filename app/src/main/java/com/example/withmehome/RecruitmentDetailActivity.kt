@@ -4,15 +4,18 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.CheckBox
-import androidx.appcompat.widget.Toolbar
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.example.withmehome.databinding.ActivityRecruitmentDetailBinding
 import kotlinx.android.synthetic.main.activity_recruitment_detail.*
-import kotlinx.android.synthetic.main.activity_recruitment_detail3.*
 import java.util.*
 
 
@@ -24,13 +27,10 @@ class RecruitmentDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recruitment_detail)
 
-        val toolbar = findViewById<Toolbar>(R.id.recruitment_detail_toolbar)
-        setSupportActionBar(toolbar)
-        val actionbar = supportActionBar!!
-        actionbar.setDisplayShowTitleEnabled(false)
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_back)
-
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.framelayoutrecruit, RecruitFragment())
+            .commitAllowingStateLoss()
 
         val sharedPreference = getSharedPreferences("RecruitmentDetail", MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreference.edit()
@@ -98,33 +98,7 @@ class RecruitmentDetailActivity : AppCompatActivity() {
             }
             datePicker.show(supportFragmentManager, datePicker.toString())
         }
-    }
 
-    fun onCheckboxClicked(view: View) {
-        if(view is CheckBox){
-            val checked: Boolean = view.isChecked
 
-            when(view.id){
-                R.id.recruitment_detail_heart->{
-                    if(checked){
-                        //
-                    }
-                    else{
-                        //
-                    }
-                }
-            }
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when(id){
-            android.R.id.home ->{
-                finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
