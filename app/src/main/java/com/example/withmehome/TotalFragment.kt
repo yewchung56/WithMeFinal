@@ -1,5 +1,6 @@
 package com.example.withmehome
 
+import android.content.Intent
 import android.graphics.ColorSpace.Model
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.example.withmehome.databinding.FragmentTotalBinding
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_total.*
 
 
 class TotalFragment:Fragment() {
@@ -30,6 +32,12 @@ class TotalFragment:Fragment() {
         binding!!.recyclerViewtotal.layoutManager = LinearLayoutManager(activity)
 
         return binding.root
+
+        var WriteRecruitmentActivity = layoutInflater.inflate(R.layout.fragment_total,container, false)
+        total.setOnClickListener {
+            val intent = Intent(getActivity(), WriteRecruitmentActivity::class.java)
+            startActivity(intent)
+        }
     }
     fun loadData(): List<Userdata>{
         val list = mutableListOf<Userdata>()

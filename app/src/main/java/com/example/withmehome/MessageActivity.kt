@@ -1,38 +1,38 @@
 package com.example.withmehome
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.withmehome.databinding.ActivityMainBinding
+import android.os.Bundle
+import android.view.*
+import androidx.appcompat.widget.Toolbar
+import com.example.withmehome.databinding.ActivityMessageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class HistoryActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
+class MessageActivity : AppCompatActivity() {
+    private lateinit var viewBinding: ActivityMessageBinding
     var bottomNavigationView: BottomNavigationView? = null
-    @SuppressLint("SuspiciousIndentation")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        viewBinding = ActivityMessageBinding.inflate(layoutInflater)
+        setContentView(viewBinding.root)
+
         bottomNavigationView = findViewById(R.id.navigationView)
-        bottomNavigationView?.setSelectedItemId(R.id.home)
+        bottomNavigationView?.setSelectedItemId(R.id.note)
         bottomNavigationView?.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.history -> {
-                    startActivity(Intent(applicationContext, HistoryActivity::class.java))
+                    startActivity(Intent(applicationContext, MeetmainActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.home ->{
+                R.id.home -> {
                     startActivity(Intent(applicationContext, MainActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.note -> {
-                    startActivity(Intent(applicationContext, NoteActivity::class.java))
+                    startActivity(Intent(applicationContext, MessageActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
@@ -44,5 +44,26 @@ class HistoryActivity : AppCompatActivity() {
             }
             false
         })
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(viewBinding.frameLayout.id, MessageFragment())
+            .commitAllowingStateLoss()
+
+        val toolbar=findViewById(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }

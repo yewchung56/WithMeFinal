@@ -115,7 +115,7 @@
             android:id="@+id/recruitment_detail_userphoto"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_recruitment_detail_photo" />
+            android:src="@drawable/img_writer_example" />
 
         <TextView
             android:layout_width="38dp"

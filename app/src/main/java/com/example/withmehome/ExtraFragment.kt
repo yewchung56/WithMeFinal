@@ -30,7 +30,7 @@ class ExtraFragment:Fragment(), View.OnClickListener {
 
         return binding.root
 
-        val WriteRecruitmentActivity = layoutInflater.inflate(R.layout.fragment_extra,container, false)
+        var WriteRecruitmentActivity = layoutInflater.inflate(R.layout.fragment_extra,container, false)
         val btn_event= WriteRecruitmentActivity.findViewById<Button>(R.id.extra)
         btn_event.setOnClickListener{
             val intent = Intent(getActivity(), WriteRecruitmentActivity::class.java)

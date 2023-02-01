@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <queries>
-        <package android:name="com.kakao.talk" />
-    </queries>
-
        <!-- 지도, 동네인증시 사용 권한-->
     <uses-permission android:name="android.permission.INTERNET"
         tools:ignore="ManifestOrder" />
@@ -34,7 +30,20 @@
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="@string/kakao_app_key" />
+            android:value="@string/kakao_native_key" />
+
+        <activity
+            android:name=".StartActivity"
+            android:theme="@style/SplashTheme2"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
     <activity
             android:name=".recruitment_detail_leader"
@@ -70,7 +79,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:host="oauth"
-                    android:scheme="kakaobf1f958399e8542520d6388d9ba66de9" />
+                    android:scheme="kakobf1f958399e8542520d6388d9ba66de9" />
             </intent-filter>
         </activity>
         <activity
@@ -91,7 +100,19 @@
             android:exported="false">
         </activity>
         <activity android:name=".RecruitmentDetailActivity"
+            android:theme="@style/MaterialCustomRoot"
             android:exported="false"/>
+        <activity android:name=".NicknameSetActivity"
+            android:exported="false"/>
+        <activity android:name=".MeetmainActivity"
+            android:exported="false"/>
+        <activity android:name=".MessageActivity"
+            android:exported="false"/>
+        <activity android:name=".MypgActivity"
+            android:exported="false"/>
+        <activity android:name=".RecruitmentDetailDeadlineActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

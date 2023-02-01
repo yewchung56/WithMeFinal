@@ -290,7 +290,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/img_writer"
                     app:layout_constraintStart_toEndOf="@id/img_writer"
                     android:layout_marginStart="10dp"
-                    android:text="작성자 이름"
+                    android:text="김써니"
                     android:textColor="#373839"
                     android:textSize="14sp"
                     android:includeFontPadding="false"/>

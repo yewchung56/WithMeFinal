@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NicknameSetActivity">
+
+    <TextView
+        android:id="@+id/txt_nickname_set_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="닉네임 설정"
+        android:textSize="18sp"
+        android:textColor="#373839"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"/>
+    <TextView
+        android:id="@+id/txt_nickname_set_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2.25dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_nickname_set_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="위드미 전용 닉네임을 설정해주세요."
+        android:textColor="#C2C2C2"
+        android:textSize="12sp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/txt_nickname_set_write_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64.18dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nickname_set_exp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="닉네임"
+        android:textColor="#373839"
+        android:textSize="12sp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false" />
+    <EditText
+        android:id="@+id/edt_set_nickname_write_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="9.96dp"
+        app:layout_constraintTop_toBottomOf="@id/txt_nickname_set_write_nickname"
+        app:layout_constraintStart_toStartOf="@id/txt_nickname_set_write_nickname"
+        app:layout_constraintEnd_toStartOf="@id/btn_set_nickname_check_dup"
+        android:hint="2~10자 숫자, 문자만 가능. 특수기호 불가"
+        android:maxLines="1"
+        android:textSize="13sp"
+        android:textColor="#656565"
+        android:fontFamily="@font/notosanskr_regular"
+        android:includeFontPadding="false" />
+
+    <Button
+        android:clickable="false"
+        android:id="@+id/btn_set_nickname_check_dup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/edt_set_nickname_write_nickname"
+        app:layout_constraintBottom_toBottomOf="@id/edt_set_nickname_write_nickname"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="중복확인"
+        android:textSize="14sp"
+        android:textColor="#A3A4A5"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false" />
+
+    <Button
+        android:id="@+id/btn_set_nickname_complete"
+        android:background="@drawable/btn_splash_start"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="가입 완료"
+        android:textColor="#656565"
+        android:textSize="15sp"
+        android:fontFamily="@font/notosanskr_medium"
+        android:includeFontPadding="false"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

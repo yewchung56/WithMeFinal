@@ -35,23 +35,24 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="555dp">
+        android:layout_height="501dp">
     </androidx.viewpager2.widget.ViewPager2>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
-            app:itemBackground="@color/white"
-            app:itemIconTint="@drawable/menu_click_color"
-            app:itemTextColor="#48877D"
-            app:menu="@menu/navi_menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        app:itemBackground="@color/white"
+        app:itemIconTint="@drawable/menu_click_color"
+        app:itemTextColor="#48877D"
+        app:menu="@menu/navi_menu" />
 
 </LinearLayout>

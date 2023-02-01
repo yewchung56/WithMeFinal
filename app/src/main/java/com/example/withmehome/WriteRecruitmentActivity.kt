@@ -1,11 +1,13 @@
 package com.example.withmehome
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.withmehome.databinding.ActivityWriteRecruitmentBinding
+import kotlinx.android.synthetic.main.activity_write_recruitment.*
 
 class WriteRecruitmentActivity : AppCompatActivity() {
 
@@ -118,6 +120,9 @@ class WriteRecruitmentActivity : AppCompatActivity() {
 
             }
 
+        }
+        btn_write_complete.setOnClickListener{
+            startActivity(Intent(this@WriteRecruitmentActivity,RecruitmentDetailActivity::class.java))
         }
     }
 }

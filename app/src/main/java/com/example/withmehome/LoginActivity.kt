@@ -1,20 +1,29 @@
 package com.example.withmehome
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.user.UserApiClient
+import com.kakao.util.helper.Utility
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
 
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        val keyHash = Utility.getKeyHash(this)
+        Log.d("Hash", keyHash)
+
         // 로그인 정보 확인
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) {
@@ -75,4 +84,5 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 }

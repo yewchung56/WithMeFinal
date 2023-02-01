@@ -17,14 +17,14 @@ class NaviActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNaviBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
         bottomNavigationView = findViewById(R.id.navigationView)
         bottomNavigationView?.setSelectedItemId(R.id.home)
         bottomNavigationView?.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.history -> {
-                    startActivity(Intent(applicationContext, HistoryActivity::class.java))
+                    startActivity(Intent(applicationContext, MeetmainActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
@@ -34,7 +34,7 @@ class NaviActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.note -> {
-                    startActivity(Intent(applicationContext, NoteActivity::class.java))
+                    startActivity(Intent(applicationContext, MessageActivity::class.java))
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
                 }
@@ -48,3 +48,4 @@ class NaviActivity : AppCompatActivity() {
         })
     }
 }
+
