@@ -60,7 +60,8 @@ dependencies {
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
     implementation 'com.google.android.gms:play-services-location:18.0.0'
-    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.30.0'
-    implementation "com.kakao.sdk:v2-user:2.5.0" // 카카오 로그인
+    // 카카오 로그인 모듈
+    implementation "com.kakao.sdk:v2-user:2.8.5"
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.27.0'
 
 }
