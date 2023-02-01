@@ -3,10 +3,16 @@ package com.example.withmehome
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.withmehome.databinding.ActivityNaviBinding
 
+private const val TAG_HOME = "home_fragment"
+private const val TAG_HISTORY = "history_fragment"
+private const val TAG_NOTE = "note_fragment"
+private const val TAG_MYPG = "mypg_fragement"
+
 class NaviActivity : AppCompatActivity() {
-/*
 private lateinit var binding: ActivityNaviBinding
 
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,5 +76,5 @@ private fun setFragment(tag: String, fragment: Fragment) {
     }
     fragTransaction.commitAllowingStateLoss()
 }
-*/
+
 }

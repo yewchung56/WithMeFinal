@@ -1,6 +1,6 @@
 package com.example.withmehome
 
-data class Userdata (
+data class meetUserdata (
     val title : String,
     val name : String,
     val date : String,
