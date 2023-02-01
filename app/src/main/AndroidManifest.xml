@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-   <!-- 지도, 동네인증시 사용 권한-->
+    <!--뮤옇ㅅ-->
+       <!-- 지도, 동네인증시 사용 권한-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -52,8 +52,7 @@
 
         <activity
             android:name=".NaviActivity"
-            android:exported="false"
-            android:parentActivityName=".MapsActivity">
+            android:exported="false">
         </activity>
 
         <activity
