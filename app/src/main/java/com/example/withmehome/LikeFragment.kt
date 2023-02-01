@@ -1,44 +1,36 @@
 package com.example.withmehome
 
 import android.app.AlertDialog
-import android.content.ClipData.Item
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.withmehome.databinding.FragmentMessage2Binding
-import kotlinx.android.synthetic.main.fragment_message2.*
+import com.example.withmehome.databinding.FragmentLikeBinding
 
-
-class MessageFragment2:Fragment() {
-    private lateinit var binding: FragmentMessage2Binding
-    private lateinit var adapter: MRecyclerItemAdapter2
+class LikeFragment:Fragment() {
+    private lateinit var binding: FragmentLikeBinding
+    private lateinit var adapter: LikeRecyclerItemAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // 데이터
-        val list = mutableListOf<MUserdata>()
-        for (i in 0..5) {
-            list.add(MUserdata("작성자 이름", "쪽지 내용이 여기에 표시됩니다.", "0000.00.00"))
-        }
-        binding = FragmentMessage2Binding.inflate(inflater, container, false)
 
-        val adapter = MRecyclerItemAdapter2(list)
+        val list = mutableListOf<LUserdata>()
+        list.add(LUserdata("모집글 제목", "사용자 이름", "00/00 00:00", "3"))
+        list.add(LUserdata("모집글 제목", "사용자 이름", "00/00 00:00", "3"))
+        list.add(LUserdata("모집글 제목", "사용자 이름", "00/00 00:00", "3"))
+        binding = FragmentLikeBinding.inflate(inflater, container,false)
+        adapter = LikeRecyclerItemAdapter(list)
         adapter.setHasStableIds(true)
-        binding!!.recyclerViewmessage2.adapter = adapter
-        binding!!.recyclerViewmessage2.layoutManager = LinearLayoutManager(activity)
+        binding!!.recyclerViewlike.adapter = adapter
+        binding!!.recyclerViewlike.layoutManager = LinearLayoutManager(activity)
+
 
         val itemSwipe = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
             override fun onMove(
@@ -54,20 +46,17 @@ class MessageFragment2:Fragment() {
             }
         }
         val swap = ItemTouchHelper(itemSwipe)
-        swap.attachToRecyclerView(recyclerViewmessage2)
+        swap.attachToRecyclerView(binding.recyclerViewlike)
 
         return binding.root
-
-
     }
-
     private fun showDialog(viewHolder: RecyclerView.ViewHolder) {
         val builder = AlertDialog.Builder(activity)
         builder.setTitle("Delete Item")
         builder.setMessage("삭제하시겠습니까?")
         builder.setPositiveButton("네") { dialog, which ->
             val position = viewHolder.adapterPosition
-            adapter.notifyItemChanged(position)
+            adapter.notifyItemRemoved(position)
 
         }
         builder.setNegativeButton("아니요") { dialog, which ->
@@ -76,4 +65,5 @@ class MessageFragment2:Fragment() {
         }
         builder.show()
     }
+
 }

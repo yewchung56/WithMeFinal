@@ -3,22 +3,24 @@ package com.example.withmehome
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.withmehome.databinding.ItemViewmessage2Binding
+import com.example.withmehome.databinding.ItemViewlikeBinding
 
-class MRecyclerItemAdapter2(var items: List<MUserdata>) : RecyclerView.Adapter<MRecyclerItemAdapter2.ViewHolder>() {
 
-    private lateinit var itemBinding: ItemViewmessage2Binding
+class LikeRecyclerItemAdapter(var items: List<LUserdata>) : RecyclerView.Adapter<LikeRecyclerItemAdapter.ViewHolder>() {
 
-    inner class ViewHolder(private val itemBinding: ItemViewmessage2Binding): RecyclerView.ViewHolder(itemBinding.root){
-        fun bind(data: MUserdata){
+    private lateinit var itemBinding: ItemViewlikeBinding
+
+    inner class ViewHolder(private val itemBinding: ItemViewlikeBinding): RecyclerView.ViewHolder(itemBinding.root){
+        fun bind(data: LUserdata){
+            itemBinding.title.text = data.title
             itemBinding.name.text = data.name
-            itemBinding.content.text = data.content
             itemBinding.date.text = data.date
+            itemBinding.like.text = data.like
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        itemBinding = ItemViewmessage2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        itemBinding = ItemViewlikeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(itemBinding)
     }
 
@@ -36,7 +38,7 @@ class MRecyclerItemAdapter2(var items: List<MUserdata>) : RecyclerView.Adapter<M
         return position.toLong()
     }
 
-    fun setData(data: List<MUserdata>){
+    fun setData(data: List<LUserdata>){
         items = data
         notifyDataSetChanged()
     }
