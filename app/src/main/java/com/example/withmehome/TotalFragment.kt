@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_total.*
 
 
-class TotalFragment:Fragment() {
+class TotalFragment:Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentTotalBinding
     private lateinit var adapter: RecyclerItemAdapter
@@ -39,6 +39,10 @@ class TotalFragment:Fragment() {
             startActivity(intent)
         }
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnClickListener()
+    }
     fun loadData(): List<Userdata>{
         val list = mutableListOf<Userdata>()
         for(i in 0..100){
@@ -46,6 +50,20 @@ class TotalFragment:Fragment() {
             list.add(data)
         }
         return list
+    }
+    private fun setOnClickListener(){
+        val totalSequence = binding.total.setOnClickListener(this)
+    }
+
+    override fun onClick(p0: View?) {
+        if (p0 != null) {
+            when (p0.id) {
+                R.id.total -> {
+                    val intent = Intent(activity, WriteRecruitmentActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
     }
 }
 
