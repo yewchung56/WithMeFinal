@@ -16,11 +16,17 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<Recy
     private lateinit var itemBinding: ItemViewBinding
 
     inner class ViewHolder(private val itemBinding: ItemViewBinding): RecyclerView.ViewHolder(itemBinding.root){
+        private val context = itemBinding.root.context
         fun bind(data: Userdata){
             itemBinding.title.text = data.title
             itemBinding.name.text = data.name
             itemBinding.date.text = data.date
             itemBinding.like.text = data.like
+
+            itemView.setOnClickListener{
+                val intent = Intent(context, RecruitmentDetailActivity::class.java)
+                intent.run { context.startActivity(this) }
+            }
         }
     }
 
