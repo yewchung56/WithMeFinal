@@ -65,6 +65,7 @@
         android:text="후기 작성 완료"
         android:textColor="@color/white"
         android:textSize="9dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,10 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_1" />
-
-
-
+        app:srcCompat="@drawable/img_4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
