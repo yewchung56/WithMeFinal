@@ -19,8 +19,14 @@ class SportFragment:Fragment(), View.OnClickListener  {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val list = mutableListOf<Userdata>()
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  운동"))
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1,"  운동"))
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1,"  운동"))
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1,"  운동"))
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  운동"))
         binding = FragmentSportBinding.inflate(inflater, container,false)
-        adapter = RecyclerItemAdapter(loadData())
+        adapter = RecyclerItemAdapter(list)
         adapter.setHasStableIds(true)
         binding!!.recyclerViewsport.adapter = adapter
         binding!!.recyclerViewsport.layoutManager = LinearLayoutManager(activity)
@@ -36,14 +42,6 @@ class SportFragment:Fragment(), View.OnClickListener  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnClickListener()
-    }
-    fun loadData(): List<Userdata>{
-        val list = mutableListOf<Userdata>()
-        for(i in 0..100){
-            val data = Userdata("모집글 제목", "사용자 이름", "00/00 00:00", "3")
-            list.add(data)
-        }
-        return list
     }
     private fun setOnClickListener(){
         val sportSequence = binding.sport.setOnClickListener(this)

@@ -20,8 +20,12 @@ class NowFragment:Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val list = mutableListOf<meetUserdata>()
+        list.add(meetUserdata("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "00"))
+        list.add(meetUserdata("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "00"))
+        list.add(meetUserdata("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "00"))
         binding = FragmentNowBinding.inflate(inflater, container,false)
-        adapter = meetRecyclerItemAdapter(loadData())
+        adapter = meetRecyclerItemAdapter(list)
         adapter.setHasStableIds(true)
         binding!!.recyclerViewnow.adapter = adapter
         binding!!.recyclerViewnow.layoutManager = LinearLayoutManager(activity)
@@ -34,14 +38,6 @@ class NowFragment:Fragment(), View.OnClickListener {
             val intent = Intent(getActivity(), WriteRecruitmentActivity::class.java)
             startActivity(intent)
         }
-    }
-    fun loadData(): List<meetUserdata>{
-        val list = mutableListOf<meetUserdata>()
-        for(i in 0..100){
-            val data = meetUserdata("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "00")
-            list.add(data)
-        }
-        return list
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
