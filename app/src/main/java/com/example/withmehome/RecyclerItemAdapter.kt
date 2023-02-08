@@ -2,16 +2,11 @@ package com.example.withmehome
 
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.withmehome.databinding.ItemView2Binding
 import com.example.withmehome.databinding.ItemViewBinding
-import com.example.withmehome.databinding.ItemViewmeetBinding
 
 
 class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<ViewHolder>() {
