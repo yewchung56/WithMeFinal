@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
+import android.widget.TextView
 import com.example.withmehome.databinding.ActivityNicknameSetBinding
+import com.kakao.sdk.user.UserApiClient
 import kotlinx.android.synthetic.main.activity_nickname_set.*
 import java.util.regex.Pattern
 
@@ -39,6 +42,11 @@ class NicknameSetActivity : AppCompatActivity() {
 
             }
         })
+        val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
+        UserApiClient.instance.me { user, error ->
+            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
+            Log.d("닉네임:","${user?.kakaoAccount?.profile?.nickname}")
+        }
     }
 
     // 조건만족 여부에 따른 이벤트
