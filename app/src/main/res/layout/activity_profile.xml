@@ -7,6 +7,14 @@
     tools:context=".ProfileActivity"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="610dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -46,6 +54,14 @@
             android:textColor="#373839"
             android:fontFamily="@font/notosanskr_bold"
             android:includeFontPadding="false"/>
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="15dp"
+            android:src="@drawable/validation"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintTop_toTopOf="@+id/img_user"
+            app:layout_constraintStart_toEndOf="@+id/txt_user_name"/>
         <TextView
             android:id="@+id/txt_user_address"
             android:layout_width="wrap_content"
@@ -94,199 +110,218 @@
             android:fontFamily="@font/notosanskr_bold"
             android:includeFontPadding="false"/>
 
-        <Button
-            android:id="@+id/btn_review_list"
-            android:layout_width="102.75dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="14.69dp"
-            android:layout_marginBottom="19.79dp"
-            android:background="@drawable/gray_border"
-            android:drawableBottom="@drawable/review_list"
-            android:text="후기 목록"
-            android:textSize="12sp"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/btn_show_profile"
-            app:layout_constraintTop_toBottomOf="@id/btn_show_profile"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/btn_my_team"
-            android:layout_width="102.75dp"
-            android:layout_height="65dp"
-            app:layout_constraintTop_toTopOf="@id/btn_review_list"
-            app:layout_constraintStart_toStartOf="@id/btn_show_profile"
-            app:layout_constraintEnd_toEndOf="@id/btn_show_profile"
-            android:text="내가 모임장"
-            android:textSize="12sp"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            android:drawableBottom="@drawable/la_crown"
-            android:background="@drawable/gray_border"/>
-        <Button
-            android:id="@+id/btn_wishlist"
-            android:layout_width="102.75dp"
-            android:layout_height="65dp"
-            app:layout_constraintTop_toTopOf="@id/btn_review_list"
-            app:layout_constraintEnd_toEndOf="@id/btn_show_profile"
-            android:text="찜 목록"
-            android:textSize="12sp"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            android:drawableBottom="@drawable/heart"
-            android:background="@drawable/gray_border"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
-        android:id="@+id/divider8"
-        android:layout_width="409dp"
-        android:layout_height="5.77dp"
-        android:background="?android:attr/listDivider"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="165dp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="230dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/layout_background"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        >
 
-        <TextView
-            android:id="@+id/txt_account"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/txt_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="17.67dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:text="나의평가"
+                android:textColor="#373839"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16.6dp"
-            android:layout_marginTop="17.67dp"
-            android:fontFamily="@font/notosanskr_bold"
-            android:includeFontPadding="false"
-            android:text="계정"
-            android:textColor="#373839"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_margin="10dp"
+                android:layout_width="57dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20.06dp"
+                android:src="@drawable/register"
+                app:layout_constraintStart_toStartOf="@+id/txt_account"
+                app:layout_constraintTop_toBottomOf="@id/txt_account" />
+
+            <ProgressBar
+                android:id="@+id/progressBar_regi"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress1"
+                android:layout_width="265dp"
+                android:layout_height="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:id="@+id/textViewHorizontalProgress_regi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#DD7A7A"
+                android:text="0%" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/img_account_management"
-            android:layout_width="14.25dp"
-            android:layout_height="14.25dp"
-            android:layout_marginTop="20.06dp"
-            android:src="@drawable/management"
-            app:layout_constraintStart_toStartOf="@+id/txt_account"
-            app:layout_constraintTop_toBottomOf="@id/txt_account" />
+                android:id="@+id/icon2"
+                android:layout_margin="10dp"
+                android:layout_width="57dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20.06dp"
+                android:src="@drawable/participate"
+                app:layout_constraintStart_toStartOf="@+id/icon1"
+                app:layout_constraintTop_toBottomOf="@id/icon1" />
+            <ProgressBar
+                android:id="@+id/progressBar_part"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress2"
+                android:layout_width="265dp"
+                android:layout_height="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:id="@+id/textViewHorizontalProgress_part"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#7A9CDE"
+                android:text="0%" />
 
-        <Button
-            android:id="@+id/btn_account_management"
-            android:layout_width="wrap_content"
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8.61dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            android:minWidth="1dp"
-            android:minHeight="1dp"
-            android:text="내 정보 관리"
-            android:textColor="#373839"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/img_account_management"
-            app:layout_constraintStart_toEndOf="@id/img_account_management"
-            app:layout_constraintTop_toTopOf="@id/img_account_management" />
+            android:orientation="horizontal">
 
-        <View
-            android:id="@+id/divider9"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="17.85dp"
-            android:layout_marginEnd="17.09dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_account_management"
-            app:layout_constraintTop_toBottomOf="@id/img_account_management" />
+            <ImageView
+                android:id="@+id/img_account_management"
+                android:layout_margin="10dp"
+                android:layout_width="57dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20.06dp"
+                android:src="@drawable/contact"
+                app:layout_constraintStart_toStartOf="@+id/icon2"
+                app:layout_constraintTop_toBottomOf="@id/icon2" />
+            <ProgressBar
+                android:id="@+id/progressBar_cont"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progressDrawable="@drawable/progress3"
+                android:layout_width="265dp"
+                android:layout_height="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp"/>
+            <TextView
+                android:id="@+id/textViewHorizontalProgress_cont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#DEA378"
+                android:text="0%" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_rev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/notosanskr_bold"
+        android:includeFontPadding="false"
+        android:text="최근 받은 후기"
+        android:textColor="#373839"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_etc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17.64dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="5dp"
+            android:text="더보기" />
+        <ImageButton
+            android:layout_width="11dp"
+            android:layout_height="12dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/baseline_arrow_forward_ios_24"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imgUser_icon"
+        android:src="@drawable/img_writer_example"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/txt_rev"
+        app:layout_constraintStart_toStartOf="@id/txt_rev"
+        />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/notosanskr_bold"
-            android:includeFontPadding="false"
-            android:text="기타"
-            android:textColor="#373839"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@id/divider9"
-            app:layout_constraintTop_toTopOf="@id/divider9" />
+            android:textSize="12sp"
+            android:text="hi" />
 
-        <Button
-            android:id="@+id/btn_FAQ"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20.41dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            android:minWidth="1dp"
-            android:minHeight="1dp"
-            android:text="자주 묻는 질문"
-            android:textColor="#373839"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/txt_etc"
-            app:layout_constraintTop_toBottomOf="@id/txt_etc" />
+            android:fontFamily="@font/notosanskr_regular"
+            android:textSize="12sp"
+            android:text="2023.03.01"/>
+        </LinearLayout>
+    </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_inqury_terms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20.41dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            android:minWidth="1dp"
-            android:minHeight="1dp"
-            android:text="약관 조회"
-            android:textColor="#373839"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/btn_FAQ"
-            app:layout_constraintTop_toBottomOf="@id/btn_FAQ" />
-
-        <Button
-            android:id="@+id/btn_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20.41dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            android:minWidth="1dp"
-            android:minHeight="1dp"
-            android:text="로그아웃"
-            android:textColor="#373839"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/btn_inqury_terms"
-            app:layout_constraintTop_toBottomOf="@id/btn_inqury_terms" />
-
-        <Button
-            android:id="@+id/btn_membership_withdrawal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20.41dp"
-            android:layout_marginBottom="72.63dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/notosanskr_medium"
-            android:includeFontPadding="false"
-            android:minWidth="1dp"
-            android:minHeight="1dp"
-            android:text="회원탈퇴"
-            android:textColor="#373839"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/btn_logout"
-            app:layout_constraintTop_toBottomOf="@id/btn_logout"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/horizontal_recy"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
-        android:layout_height="103dp"
+        android:layout_height="133dp"
         android:layout_alignParentBottom="true"
         android:layout_weight="1"
         app:itemBackground="@color/white"
