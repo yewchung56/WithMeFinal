@@ -56,11 +56,12 @@ class NicknameSetActivity : AppCompatActivity() {
         val pw = binding.edtSetNicknameWriteNickname.text.toString().trim()
         val pwCheck = Pattern.matches(binding.edtSetNicknameWriteNickname.toString(), pw)
         if(pwCheck) {
-            binding.edtSetNicknameWriteNickname.setTextColor(R.color.black.toInt())
+            binding.txtSetNicknameAlert.setTextColor(R.color.black.toInt())
+            binding.txtSetNicknameAlert.text = " "
             return true
         } else {
-            binding.edtSetNicknameWriteNickname.setTextColor((R.color.red.toInt()))
-            binding.txtNicknameSetExp.text = "2~10자 숫자, 문자만 가능. 특수기호 불가"
+            binding.txtSetNicknameAlert.setTextColor((R.color.red.toInt()))
+            binding.txtSetNicknameAlert.text = "2~10자 숫자, 문자만 가능. 특수기호 불가"
             return false
         }
     }
@@ -78,13 +79,13 @@ class NicknameSetActivity : AppCompatActivity() {
                     if(response.isSuccessful) {
                         val result = response.body()?.data?.duplicated
                         if (result == true) {
-                            binding.txtNicknameSetExp.setTextColor(R.color.blue.toInt())
-                            binding.txtNicknameSetExp.text = "사용 가능한 닉네임입니다."
+                            binding.txtSetNicknameAlert.setTextColor(R.color.blue.toInt())
+                            binding.txtSetNicknameAlert.text = "사용 가능한 닉네임입니다."
                             binding.btnSetNicknameComplete.isClickable
                         }
                         else {
-                            binding.txtNicknameSetExp.setTextColor(R.color.red.toInt())
-                            binding.txtNicknameSetExp.text = "이미 사용중인 닉네임입니다."
+                            binding.txtSetNicknameAlert.setTextColor(R.color.red.toInt())
+                            binding.txtSetNicknameAlert.text = "이미 사용중인 닉네임입니다."
                         }
                     }
                 }
