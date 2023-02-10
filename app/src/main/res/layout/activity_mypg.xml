@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyPageActivity"
+    tools:context=".MypgActivity"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -302,7 +302,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
-        android:layout_height="103dp"
+        android:layout_height="72dp"
         android:layout_alignParentBottom="true"
         android:layout_weight="1"
         app:itemBackground="@color/white"
