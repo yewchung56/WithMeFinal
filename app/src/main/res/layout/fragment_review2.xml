@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NowFragment">
+    tools:context=".Review2Fragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewnow"
+        android:id="@+id/recyclerViewreview2"
         android:layout_width="match_parent"
         android:layout_height="560dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,22 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_viewmeet" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/now"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="85dp"
-        android:clickable="true"
-        app:backgroundTint="#75DECD"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/img_3"
-        app:tint="@color/white" />
-
-
-
+        tools:listitem="@layout/item_viewreview2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

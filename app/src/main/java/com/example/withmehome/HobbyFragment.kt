@@ -19,8 +19,14 @@ class HobbyFragment:Fragment(), View.OnClickListener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val list = mutableListOf<Userdata>()
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  취미"))
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1,"  취미"))
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1,"  취미"))
+        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  취미"))
         binding = FragmentHobbyBinding.inflate(inflater, container,false)
-        adapter = RecyclerItemAdapter(loadData())
+        adapter = RecyclerItemAdapter(list)
         adapter.setHasStableIds(true)
         binding!!.recyclerViewhobby.adapter = adapter
         binding!!.recyclerViewhobby.layoutManager = LinearLayoutManager(activity)
@@ -33,14 +39,7 @@ class HobbyFragment:Fragment(), View.OnClickListener{
             startActivity(intent)
         }
     }
-    fun loadData(): List<Userdata>{
-        val list = mutableListOf<Userdata>()
-        for(i in 0..100){
-            val data = Userdata("모집글 제목", "사용자 이름", "00/00 00:00", "3")
-            list.add(data)
-        }
-        return list
-    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnClickListener()

@@ -1,10 +1,8 @@
 package com.example.withmehome
 
-data class Userdata (
+data class LUserdata (
     val title : String,
     val name : String,
     val date : String,
     val like : String,
-    val type : Int,
-    val category: String
 )
