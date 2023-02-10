@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WriteReviewActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btn_wr_x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11.88dp"
+                android:layout_marginTop="21.19dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/x_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_wr_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:text="후기 남기기"
+                android:textColor="#373839"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/btn_wr_x"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_wr_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24.42dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="모임명"
+                android:textColor="#A3A5A4"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/btn_wr_x"
+                app:layout_constraintTop_toBottomOf="@id/btn_wr_x" />
+
+            <TextView
+                android:id="@+id/txt_wr_team_name_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13.62dp"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:text="오밍의 이름"
+                android:textColor="#737373"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/txt_wr_team_name"
+                app:layout_constraintTop_toTopOf="@id/txt_wr_team_name" />
+
+            <TextView
+                android:id="@+id/txt_wr_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7.47dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="닉네임"
+                android:textColor="#A3A5A4"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/txt_wr_team_name"
+                app:layout_constraintTop_toBottomOf="@id/txt_wr_team_name" />
+
+            <TextView
+                android:id="@+id/txt_wr_nickname_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:text="닉네임입니다."
+                android:textColor="#373839"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/txt_wr_team_name_data"
+                app:layout_constraintTop_toTopOf="@+id/txt_wr_nickname" />
+
+            <View
+                android:id="@+id/div_wr"
+                android:layout_width="match_parent"
+                android:layout_height="5.75dp"
+                android:layout_marginTop="17.19dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_wr_nickname" />
+
+            <TextView
+                android:id="@+id/txt_wr_eval_reliability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.75dp"
+                android:layout_marginTop="25.21dp"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:text="신뢰도 평가"
+                android:textColor="#373839"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/div_wr" />
+
+            <TextView
+                android:id="@+id/txt_wr_reliability_rq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3.95dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:text="팀원의 출석률, 참여도, 신뢰도, 적극성 등을 고려해 평가해 주세요."
+                android:textColor="#8C8C8C"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/txt_wr_eval_reliability"
+                app:layout_constraintTop_toBottomOf="@id/txt_wr_eval_reliability" />
+
+            <ImageView
+                android:id="@+id/img_wr_attendance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35.16dp"
+                android:src="@drawable/steady_attendance"
+                app:layout_constraintStart_toStartOf="@id/txt_wr_reliability_rq"
+                app:layout_constraintTop_toBottomOf="@id/txt_wr_reliability_rq" />
+
+            <RatingBar
+                android:id="@+id/rat_wr_attendance"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="184.06dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="24.71dp"
+                app:layout_constraintBottom_toBottomOf="@id/img_wr_attendance"
+                app:layout_constraintStart_toEndOf="@id/img_wr_attendance"
+                app:layout_constraintTop_toTopOf="@id/img_wr_attendance"
+                android:progressTint="#DD7A7A"
+                android:rating="2.5"
+                android:stepSize="0.5"/>
+
+            <ImageView
+                android:id="@+id/img_wr_participation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29.21dp"
+                android:src="@drawable/active_participation"
+                app:layout_constraintStart_toStartOf="@id/img_wr_attendance"
+                app:layout_constraintTop_toBottomOf="@id/img_wr_attendance" />
+
+            <RatingBar
+                android:id="@+id/rat_wr_participation"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="184.06dp"
+                android:layout_height="35dp"
+                app:layout_constraintBottom_toBottomOf="@id/img_wr_participation"
+                app:layout_constraintStart_toStartOf="@id/rat_wr_attendance"
+                app:layout_constraintTop_toTopOf="@id/img_wr_participation"
+                android:progressTint="#7A9CDE"
+                android:rating="2.5"
+                android:stepSize="0.5"/>
+
+            <ImageView
+                android:id="@+id/img_wr_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29.21dp"
+                android:src="@drawable/quick_contact"
+                app:layout_constraintEnd_toEndOf="@id/img_wr_participation"
+                app:layout_constraintStart_toStartOf="@id/img_wr_participation"
+                app:layout_constraintTop_toBottomOf="@id/img_wr_participation" />
+
+            <RatingBar
+                android:id="@+id/rat_wr_contact"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="184.06dp"
+                android:layout_height="35dp"
+                app:layout_constraintBottom_toBottomOf="@id/img_wr_contact"
+                app:layout_constraintStart_toStartOf="@id/rat_wr_participation"
+                app:layout_constraintTop_toTopOf="@id/img_wr_contact"
+                android:progressTint="#DEA378"
+                android:rating="2.5"
+                android:stepSize="0.5"/>
+
+            <TextView
+                android:id="@+id/txt_wr_leave_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="73.33dp"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:text="후기를 남겨주세요 💌"
+                android:textColor="#373839"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/img_wr_contact"
+                app:layout_constraintTop_toBottomOf="@id/img_wr_contact" />
+
+            <TextView
+                android:id="@+id/txt_wr_leave_review_rq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="작성하신 내용은 상대방의 프로필에 공개됩니다."
+                app:layout_constraintStart_toStartOf="@id/txt_wr_leave_review"
+                app:layout_constraintTop_toBottomOf="@id/txt_wr_leave_review" />
+
+            <EditText
+                android:id="@+id/edt_wr_leave_review"
+                android:layout_width="0dp"
+                android:layout_height="165dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="18.19dp"
+                android:paddingHorizontal="13.5dp"
+                android:paddingVertical="10.58dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_wr_leave_review_rq"
+                android:gravity="top"
+                android:hint="내용을 입력해주세요."
+                android:textColor="#C4C4C4"
+                android:textSize="14sp"
+                android:background="@drawable/edt_gray_border"
+                android:scrollbars="vertical"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/edt_wr_leave_review"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/edt_wr_leave_review"
+                app:layout_constraintEnd_toEndOf="@id/edt_wr_leave_review"
+                android:layout_marginTop="49.5dp"
+                android:layout_marginBottom="71.17dp"
+                android:text="완료"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
+                android:background="@drawable/button_pattern_no_padding"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>
