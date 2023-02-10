@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-       <!-- 지도, 동네인증시 사용 권한-->
-    <uses-permission android:name="android.permission.INTERNET"
+    <!-- 지도, 동네인증시 사용 권한 -->
+    <uses-permission
+        android:name="android.permission.INTERNET"
         tools:ignore="ManifestOrder" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -18,38 +18,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Withmehome"
         tools:targetApi="31">
+        <activity
+            android:name=".WriteReviewActivity"
+            android:exported="false" />
 
         <uses-library
             android:name="org.apache.http.legacy"
-            android:required="false"/>
-
-        <!--구글지도 api key-->
+            android:required="false" /> <!-- 구글지도 api key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCJXhM_z8-RuMgMnC518aM-R6jX6ZLPB6g" />
-
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_native_key" />
 
         <activity
             android:name=".StartActivity"
-            android:theme="@style/SplashTheme2"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme2">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-    <activity
+        <activity
             android:name=".recruitment_detail_leader"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".recruitment_detail_deadline"
             android:exported="false">
@@ -57,26 +56,33 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
 
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="oauth"
                     android:scheme="kakobf1f958399e8542520d6388d9ba66de9" />
@@ -84,35 +90,35 @@
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".NaviActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".WriteRecruitmentActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
-        <activity android:name=".RecruitmentDetailActivity"
-            android:theme="@style/MaterialCustomRoot"
-            android:exported="false"/>
-        <activity android:name=".NicknameSetActivity"
-            android:exported="false"/>
-        <activity android:name=".MeetmainActivity"
-            android:exported="false"/>
-        <activity android:name=".MessageActivity"
-            android:exported="false"/>
-        <activity android:name=".MypgActivity"
-            android:exported="false"/>
-        <activity android:name=".RecruitmentDetailDeadlineActivity"
-            android:exported="false"/>
-
+            android:exported="false"></activity>
+        <activity
+            android:name=".RecruitmentDetailActivity"
+            android:exported="false"
+            android:theme="@style/MaterialCustomRoot" />
+        <activity
+            android:name=".NicknameSetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MeetmainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MypgActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecruitmentDetailDeadlineActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
