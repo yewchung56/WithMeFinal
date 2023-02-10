@@ -25,7 +25,7 @@ class NicknameSetActivity : AppCompatActivity() {
         setContentView(R.layout.activity_nickname_set)
 
         // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
-        btn_set_nickname_complete.setOnClickListener{
+        btn_set_nickname_complete.setOnClickListener {
             startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
         }
 
@@ -50,15 +50,15 @@ class NicknameSetActivity : AppCompatActivity() {
         // 액티비티에서 retrofit 사용 시작
         binding.btnSetNicknameCheckDup.setOnClickListener {
             retrofitCheckDup()
-            
-        val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
-        UserApiClient.instance.me { user, error ->
-            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
-            Log.d("닉네임:","${user?.kakaoAccount?.profile?.nickname}")
 
+            val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
+            UserApiClient.instance.me { user, error ->
+                nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
+                Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
+
+            }
         }
     }
-
     // 조건만족 여부에 따른 이벤트
     fun checkPassword():Boolean{
         val pw = binding.edtSetNicknameWriteNickname.text.toString().trim()

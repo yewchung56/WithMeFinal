@@ -78,7 +78,7 @@
             android:name="android.app.lib_name"
             android:value="" />
 
-<<<<<<< HEAD
+
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -87,10 +87,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-=======
+
         <activity android:name=".LoginActivity"
             android:exported="false">
->>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -105,15 +104,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-<<<<<<< HEAD
+
                 <data
                     android:host="oauth"
                     android:scheme="kakobf1f958399e8542520d6388d9ba66de9" />
-=======
+
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
                 <data android:host="oauth"
                     android:scheme="kakao818712b89ed47ae9edee2e90fe16dcdf" />
->>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
+
             </intent-filter>
         </activity>
         <activity
@@ -127,7 +126,6 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-<<<<<<< HEAD
             android:exported="false"></activity>
         <activity
             android:name=".RecruitmentDetailActivity"
@@ -148,7 +146,6 @@
         <activity
             android:name=".RecruitmentDetailDeadlineActivity"
             android:exported="false" />
-=======
             android:exported="false">
         </activity>
         <activity android:name=".RecruitmentDetailActivity"
