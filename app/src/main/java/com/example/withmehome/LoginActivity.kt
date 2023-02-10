@@ -7,14 +7,17 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
+import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
-import com.kakao.util.helper.Utility
+import kotlinx.android.synthetic.main.activity_nickname_set.*
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
+import kotlin.math.log
 
 
 class LoginActivity : AppCompatActivity() {
@@ -31,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
             }
             else if (tokenInfo != null) {
                 Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MapsActivity::class.java)
+                val intent = Intent(this, NicknameSetActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
             }
@@ -68,13 +71,15 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             } else if (token != null) {
-                Toast.makeText(this, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MapsActivity::class.java)
+                Toast.makeText(this, "로그인에 성공하였습니다. ${token.accessToken}", Toast.LENGTH_SHORT).show()
+                Log.d("token:","${token.accessToken}")
+                val intent = Intent(this, NicknameSetActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
             }
         }
         val kakao_login_button = findViewById<ImageButton>(R.id.login_kakaoButton)
+
         // 로그인 버튼
         kakao_login_button.setOnClickListener {
             if(UserApiClient.instance.isKakaoTalkLoginAvailable(this)){
