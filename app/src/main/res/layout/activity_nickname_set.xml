@@ -10,7 +10,6 @@
         android:id="@+id/txt_nickname_set_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +45,17 @@
         android:textSize="12sp"
         android:fontFamily="@font/notosanskr_medium"
         android:includeFontPadding="false" />
+
+    <TextView
+        android:id="@+id/txt_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="60dp"
+        android:text="2~10자 숫자, 문자만 가능. 특수기호 불가"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nickname_set_exp" />
+
     <EditText
         android:id="@+id/edt_set_nickname_write_nickname"
         android:layout_width="0dp"
@@ -55,7 +65,6 @@
         app:layout_constraintTop_toBottomOf="@id/txt_nickname_set_write_nickname"
         app:layout_constraintStart_toStartOf="@id/txt_nickname_set_write_nickname"
         app:layout_constraintEnd_toStartOf="@id/btn_set_nickname_check_dup"
-        android:hint="2~10자 숫자, 문자만 가능. 특수기호 불가"
         android:maxLines="1"
         android:textSize="13sp"
         android:textColor="#656565"
