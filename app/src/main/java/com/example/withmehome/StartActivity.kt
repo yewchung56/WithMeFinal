@@ -13,8 +13,8 @@ class StartActivity : AppCompatActivity() {
         Thread.sleep(300)
         setContentView(R.layout.activity_start)
 
-        login_btn.setOnClickListener {
-            startActivity(Intent(this@StartActivity,NicknameSetActivity::class.java))
+        splash_start_btn.setOnClickListener {
+            startActivity(Intent(this@StartActivity,LoginActivity::class.java))
         }
     }
 }

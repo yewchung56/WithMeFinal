@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<<<<<<< HEAD
     <!-- 지도, 동네인증시 사용 권한 -->
     <uses-permission
         android:name="android.permission.INTERNET"
         tools:ignore="ManifestOrder" />
+=======
+
+       <!-- 지도, 동네인증시 사용 권한-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+        <!--tools:ignore="ManifestOrder"-->
+>>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -17,10 +24,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Withmehome"
+<<<<<<< HEAD
         tools:targetApi="31">
         <activity
             android:name=".WriteReviewActivity"
             android:exported="false" />
+=======
+        tools:targetApi="31"
+        tools:ignore="GoogleAppIndexingWarning">
+>>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -28,9 +40,14 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCJXhM_z8-RuMgMnC518aM-R6jX6ZLPB6g" />
+<<<<<<< HEAD
         <meta-data
+=======
+
+        <!--<meta-data
+>>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
             android:name="com.kakao.sdk.AppKey"
-            android:value="@string/kakao_native_key" />
+            android:value="@string/kakao_native_key" />-->
 
         <activity
             android:name=".StartActivity"
@@ -61,6 +78,7 @@
             android:name="android.app.lib_name"
             android:value="" />
 
+<<<<<<< HEAD
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -69,6 +87,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+=======
+        <activity android:name=".LoginActivity"
+            android:exported="false">
+>>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -83,9 +105,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
+<<<<<<< HEAD
                 <data
                     android:host="oauth"
                     android:scheme="kakobf1f958399e8542520d6388d9ba66de9" />
+=======
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data android:host="oauth"
+                    android:scheme="kakao818712b89ed47ae9edee2e90fe16dcdf" />
+>>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
             </intent-filter>
         </activity>
         <activity
@@ -99,6 +127,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+<<<<<<< HEAD
             android:exported="false"></activity>
         <activity
             android:name=".RecruitmentDetailActivity"
@@ -119,6 +148,26 @@
         <activity
             android:name=".RecruitmentDetailDeadlineActivity"
             android:exported="false" />
+=======
+            android:exported="false">
+        </activity>
+        <activity android:name=".RecruitmentDetailActivity"
+            android:theme="@style/MaterialCustomRoot"
+            android:exported="false"/>
+        <activity android:name=".NicknameSetActivity"
+            android:exported="false"/>
+        <activity android:name=".MeetmainActivity"
+            android:exported="false"/>
+        <activity android:name=".MessageActivity"
+            android:exported="false"/>
+        <activity android:name=".MypgActivity"
+            android:exported="false"/>
+        <activity android:name=".RecruitmentDetailDeadlineActivity"
+            android:exported="false"/>
+        <activity android:name=".ProfileActivity"
+            android:exported="false"/>
+
+>>>>>>> 108e2f56a7b888110c7b207fa808b73dabc952b3
     </application>
 
 </manifest>
