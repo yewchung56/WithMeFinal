@@ -25,7 +25,7 @@ class NicknameSetActivity : AppCompatActivity() {
         setContentView(R.layout.activity_nickname_set)
 
         // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
-        btn_set_nickname_complete.setOnClickListener{
+        btn_set_nickname_complete.setOnClickListener {
             startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
         }
 
@@ -50,20 +50,21 @@ class NicknameSetActivity : AppCompatActivity() {
         // 액티비티에서 retrofit 사용 시작
         binding.btnSetNicknameCheckDup.setOnClickListener {
             retrofitCheckDup()
-            
-        val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
-        UserApiClient.instance.me { user, error ->
-            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
-            Log.d("닉네임:","${user?.kakaoAccount?.profile?.nickname}")
 
+            val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
+            UserApiClient.instance.me { user, error ->
+                nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
+                Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
+
+            }
         }
     }
 
     // 조건만족 여부에 따른 이벤트
-    fun checkPassword():Boolean{
+    private fun checkPassword(): Boolean {
         val pw = binding.edtSetNicknameWriteNickname.text.toString().trim()
         val pwCheck = Pattern.matches(binding.edtSetNicknameWriteNickname.toString(), pw)
-        if(pwCheck) {
+        if (pwCheck) {
             binding.txtSetNicknameAlert.setTextColor(R.color.black.toInt())
             binding.txtSetNicknameAlert.text = " "
             return true
@@ -75,23 +76,22 @@ class NicknameSetActivity : AppCompatActivity() {
     }
 
     // 닉네임 중복 확인
-    private fun retrofitCheckDup() {
+    fun retrofitCheckDup() {
         val service = RetrofitApi.nicknameDupService
 
         service.getNicknameData(binding.edtSetNicknameWriteNickname.toString())
             .enqueue(object : retrofit2.Callback<NicknameDupResponse> {
                 override fun onResponse(
-                    call : Call<NicknameDupResponse>,
+                    call: Call<NicknameDupResponse>,
                     response: Response<NicknameDupResponse>
                 ) {
-                    if(response.isSuccessful) {
+                    if (response.isSuccessful) {
                         val result = response.body()?.data?.duplicated
                         if (result == true) {
                             binding.txtSetNicknameAlert.setTextColor(R.color.blue.toInt())
                             binding.txtSetNicknameAlert.text = "사용 가능한 닉네임입니다."
                             binding.btnSetNicknameComplete.isClickable
-                        }
-                        else {
+                        } else {
                             binding.txtSetNicknameAlert.setTextColor(R.color.red.toInt())
                             binding.txtSetNicknameAlert.text = "이미 사용중인 닉네임입니다."
                         }
