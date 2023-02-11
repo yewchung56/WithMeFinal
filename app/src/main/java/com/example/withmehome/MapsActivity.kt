@@ -32,6 +32,8 @@ import java.util.*
 import java.util.jar.Manifest
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
+
+
     val permissions = arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION )
     val PERM_FLAG = 99
     private lateinit var mMap: GoogleMap
@@ -99,7 +101,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         var mGeocoder = Geocoder(applicationContext, Locale.KOREAN)
                         var mResultList: List<Address>? = null
                         var currentLocation : String = ""
-                        val textView = findViewById<TextView>(R.id.textView_now)
+                        var textView = findViewById<TextView>(R.id.textView_now)
                         try {
                             mResultList = mGeocoder.getFromLocation(
                                 location.latitude!!, location.longitude!!,1

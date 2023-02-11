@@ -24,6 +24,13 @@ class NicknameSetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nickname_set)
 
+        val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
+        UserApiClient.instance.me { user, error ->
+            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
+            Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
+
+        }
+
         // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
         btn_set_nickname_complete.setOnClickListener {
             startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
@@ -51,12 +58,6 @@ class NicknameSetActivity : AppCompatActivity() {
         binding.btnSetNicknameCheckDup.setOnClickListener {
             retrofitCheckDup()
 
-            val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
-            UserApiClient.instance.me { user, error ->
-                nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
-                Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
-
-            }
         }
     }
 
