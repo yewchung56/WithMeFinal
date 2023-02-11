@@ -21,9 +21,12 @@ class ExtraallFragment:Fragment(), View.OnClickListener{
         savedInstanceState: Bundle?
     ): View? {
         val list = mutableListOf<Userdata>()
-        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
-        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1,"  기타"))
-        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1, "  기타"))
+        val Activity = layoutInflater.inflate(R.layout.activity_recruitment_detail,container,false)
+        val event = Activity.findViewById<Button>(R.id.recruit_end)
+        event.setOnClickListener {
+            list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
+            adapter.notifyDataSetChanged()
+        }
 
         binding = FragmentExtraallBinding.inflate(inflater, container,false)
         adapter = RecyclerItemAdapter(list)
