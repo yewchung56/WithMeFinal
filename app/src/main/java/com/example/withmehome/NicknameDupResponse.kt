@@ -12,7 +12,5 @@ data class NicknameDupResponse(
 
 data class DataNickDup(
     @field:Json(name = "duplicated")
-    val duplicated: Boolean?,
-    @field:Json(name = "meetInfoGetResponses")
-    val meetInfoGetResponses: List<MeetInfoGetResponse>
+    val duplicated: Boolean?
 )

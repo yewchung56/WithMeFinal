@@ -3,11 +3,16 @@ package com.example.withmehome
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.SeekBar
 import com.example.withmehome.databinding.ActivityWriteRecruitmentBinding
 import kotlinx.android.synthetic.main.activity_write_recruitment.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class WriteRecruitmentActivity : AppCompatActivity() {
 
@@ -121,8 +126,44 @@ class WriteRecruitmentActivity : AppCompatActivity() {
             }
 
         }
-        btn_write_complete.setOnClickListener{
+        // seekbar 값 보여주기
+        viewBinding.seekNum.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                viewBinding.txtFinalNum.text = progress.toString()
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+            }
+
+        })
+
+        // 제출 버튼 클릭
+        viewBinding.btnWriteComplete.setOnClickListener{
+            retorfitWriteRec()
+
             startActivity(Intent(this@WriteRecruitmentActivity,RecruitmentDetailActivity::class.java))
         }
+    }
+
+    private fun retorfitWriteRec() {
+        val service = RetrofitApi.writeRecruitmentService
+
+        service.getWriteRecData(viewBinding.spinnerCity.toString(),viewBinding.spinnerDistrict.toString(), viewBinding.spinnerCategory.toString(),
+                                viewBinding.edtTitle.toString(), viewBinding.edtContent.toString(), 3, viewBinding.seekNum.progress)
+            .enqueue(object : Callback<WriteRecruitmentResponse> {
+                override fun onResponse(
+                    call: Call<WriteRecruitmentResponse>,
+                    response: Response<WriteRecruitmentResponse>
+                ) {
+                    Log.d("Tag", response.body().toString())
+                }
+
+                override fun onFailure(call: Call<WriteRecruitmentResponse>, t: Throwable) {
+                    Log.d("Tag", t.message.toString())
+                }
+            })
     }
 }
