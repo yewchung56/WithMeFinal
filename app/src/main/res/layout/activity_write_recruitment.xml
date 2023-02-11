@@ -163,6 +163,36 @@
                     android:textSize="12sp"
                     android:textColor="#8C8C8C"
                     android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/txt_final_num_is"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintTop_toTopOf="@id/txt_limit"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_limit"
+                    app:layout_constraintStart_toEndOf="@id/txt_limit"
+                    android:text="인원 :"
+                    android:textSize="14sp"
+                    android:textColor="#373839"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"/>
+
+                <TextView
+                    android:id="@+id/txt_final_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@id/txt_final_num_is"
+                    app:layout_constraintBottom_toBottomOf="@id/txt_final_num_is"
+                    app:layout_constraintStart_toEndOf="@id/txt_final_num_is"
+                    android:text="3"
+                    android:textSize="14sp"
+                    android:textColor="#373839"
+                    android:fontFamily="@font/notosanskr_medium"
+                    android:includeFontPadding="false"/>
+
+
                 <TextView
                     android:id="@+id/txt_min_num"
                     android:layout_width="wrap_content"
@@ -175,6 +205,7 @@
                     android:text="3명"
                     android:textSize="14sp"
                     android:textColor="#373839"
+                    android:fontFamily="@font/notosanskr_medium"
                     android:includeFontPadding="false"/>
                 <SeekBar
                     android:id="@+id/seek_num"
@@ -195,6 +226,7 @@
                     android:text="10명"
                     android:textSize="14sp"
                     android:textColor="#373839"
+                    android:fontFamily="@font/notosanskr_medium"
                     android:includeFontPadding="false"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
