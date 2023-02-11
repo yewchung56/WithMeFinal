@@ -5,12 +5,12 @@ import com.squareup.moshi.Json
 
 data class NicknameDupResponse(
     @field:Json(name = "data")
-    val `data`: Data?,
+    val `data`: DataNickDup?,
     @field:Json(name = "success")
     val success: Boolean?
 )
 
-data class Data(
+data class DataNickDup(
     @field:Json(name = "duplicated")
     val duplicated: Boolean?,
     @field:Json(name = "meetInfoGetResponses")
