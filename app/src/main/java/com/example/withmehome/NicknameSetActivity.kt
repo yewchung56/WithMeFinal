@@ -31,14 +31,6 @@ class NicknameSetActivity : AppCompatActivity() {
 
         }
 
-        // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
-        btn_set_nickname_complete.setOnClickListener {
-            startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
-        }
-
-        // 비밀번호 조건 정규식 : 2~10 숫자, 문자만
-        val pwValidation = "^[A-Za-z0-9]{2,10}$"
-
         // 조건부 닉네임 설정
         binding.edtSetNicknameWriteNickname.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -46,7 +38,7 @@ class NicknameSetActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                checkPassword()
+                checkPassword(binding.edtSetNicknameWriteNickname.toString())
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -57,15 +49,24 @@ class NicknameSetActivity : AppCompatActivity() {
         // 액티비티에서 retrofit 사용 시작
         binding.btnSetNicknameCheckDup.setOnClickListener {
             retrofitCheckDup()
+        }
 
+        // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
+        binding.btnSetNicknameComplete.setOnClickListener {
+            startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
         }
     }
-
     // 조건만족 여부에 따른 이벤트
-    private fun checkPassword(): Boolean {
+    private fun checkPassword(password: String): Boolean {
+        // 비밀번호 조건 정규식 : 2~10 숫자, 문자만
+        val pwValidation = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{2,10}$"
+
         val pw = binding.edtSetNicknameWriteNickname.text.toString().trim()
-        val pwCheck = Pattern.matches(binding.edtSetNicknameWriteNickname.toString(), pw)
-        if (pwCheck) {
+
+        val pattern = Pattern.compile(pwValidation)
+        val matcher = pattern.matcher(pw)
+
+        if (matcher.find()) {
             binding.txtSetNicknameAlert.setTextColor(R.color.black.toInt())
             binding.txtSetNicknameAlert.text = " "
             return true
@@ -77,7 +78,7 @@ class NicknameSetActivity : AppCompatActivity() {
     }
 
     // 닉네임 중복 확인
-    fun retrofitCheckDup() {
+    private fun retrofitCheckDup() {
         val service = RetrofitApi.nicknameDupService
 
         service.getNicknameData(binding.edtSetNicknameWriteNickname.toString())
@@ -87,11 +88,12 @@ class NicknameSetActivity : AppCompatActivity() {
                     response: Response<NicknameDupResponse>
                 ) {
                     if (response.isSuccessful) {
-                        val result = response.body()?.data?.duplicated
+                        val result : Boolean? = response.body()?.data?.duplicated
+                        Log.d("Tag", response.body()?.data?.duplicated.toString())
                         if (result == true) {
                             binding.txtSetNicknameAlert.setTextColor(R.color.blue.toInt())
                             binding.txtSetNicknameAlert.text = "사용 가능한 닉네임입니다."
-                            binding.btnSetNicknameComplete.isClickable
+                            binding.btnSetNicknameComplete.isClickable = true
                         } else {
                             binding.txtSetNicknameAlert.setTextColor(R.color.red.toInt())
                             binding.txtSetNicknameAlert.text = "이미 사용중인 닉네임입니다."
