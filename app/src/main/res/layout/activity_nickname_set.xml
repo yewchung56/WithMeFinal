@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/txt_nickname_set_write_nickname"
         app:layout_constraintStart_toStartOf="@id/txt_nickname_set_write_nickname"
         app:layout_constraintEnd_toStartOf="@id/btn_set_nickname_check_dup"
-        android:hint="2~10자 숫자, 문자만 가능. 특수기호 불가"
+        android:hint=" 2~10자 숫자, 문자만 가능. 특수기호 불가"
         android:singleLine="true"
         android:maxLines="1"
         android:textSize="13sp"
@@ -73,6 +73,7 @@
         android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         android:background="@drawable/edt_gray_border"/>
+
 
     <Button
         android:clickable="false"
