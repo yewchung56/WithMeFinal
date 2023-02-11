@@ -1,5 +1,6 @@
 package com.example.withmehome
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,11 +12,16 @@ class meetRecyclerItemAdapter(var items: List<meetUserdata>) : RecyclerView.Adap
     private lateinit var itemBinding: ItemViewmeetBinding
 
     inner class ViewHolder(private val itemBinding: ItemViewmeetBinding): RecyclerView.ViewHolder(itemBinding.root){
+        private val context = itemBinding.root.context
         fun bind(data: meetUserdata){
             itemBinding.title.text = data.title
             itemBinding.name.text = data.name
             itemBinding.date.text = data.date
             itemBinding.like.text= data.like
+            itemView.setOnClickListener {
+                val intent = Intent(context, RecruitmentDetailDeadlineActivity::class.java)
+                intent.run{context.startActivity(this)}
+            }
         }
     }
 

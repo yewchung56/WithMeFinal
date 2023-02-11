@@ -82,11 +82,11 @@
         android:layout_height="18dp"
         android:layout_marginEnd="65dp"
         android:layout_marginBottom="9dp"
-        android:background="@drawable/solid_button"
-        android:text="모집중"
+        android:background="@drawable/solid_button3"
+        android:text="모집완료"
         android:textColor="@color/white"
         android:textSize="9dp"
-        android:paddingLeft="9.5dp"
+        android:paddingLeft="5dp"
         android:paddingTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -101,11 +101,11 @@
         android:text="스터디"
         android:textColor="#737373"
         android:textSize="9dp"
-        android:paddingLeft="9.5dp"
+        android:paddingLeft="8.5dp"
         android:paddingTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/recruit" />
+        app:layout_constraintStart_toEndOf="@+id/recruit2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
