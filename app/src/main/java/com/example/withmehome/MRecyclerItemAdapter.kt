@@ -1,5 +1,6 @@
 package com.example.withmehome
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,9 +13,16 @@ class MRecyclerItemAdapter(var items: List<MUserdata>) : RecyclerView.Adapter<MR
 
     inner class ViewHolder(private val itemBinding: ItemViewmessageBinding): RecyclerView.ViewHolder(itemBinding.root){
         fun bind(data: MUserdata){
+
+            /*itemView.setOnClickListener{
+                val intent = Intent(context, RecruitmentDetailActivity::class.java)
+                intent.run { context.startActivity(this) }
+            }*/
             itemBinding.name.text = data.name
             itemBinding.content.text = data.content
             itemBinding.date.text = data.date
+
+
         }
     }
 
