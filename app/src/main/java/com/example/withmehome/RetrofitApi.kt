@@ -30,4 +30,8 @@ object RetrofitApi {
     val nicknameDupService: NicknameDupService by lazy {
         retrofit.create(NicknameDupService::class.java)
     }
+
+    val writeRecruitmentService: WriteRecruitmentService by lazy {
+        retrofit.create(WriteRecruitmentService::class.java)
+    }
 }
