@@ -3,7 +3,7 @@ package com.example.withmehome
 
 import com.squareup.moshi.Json
 
-data class DataX(
+data class DataLogin(
     @Json(name = "accessToken")
     val accessToken: String?,
     @Json(name = "addressExistence")
