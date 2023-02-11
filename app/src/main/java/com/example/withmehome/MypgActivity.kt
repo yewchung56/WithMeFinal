@@ -3,6 +3,8 @@ package com.example.withmehome;
 import android.app.Activity;
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.location.Address
+import android.location.Geocoder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +15,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.withmehome.databinding.ActivityMessageBinding
 import com.example.withmehome.databinding.ActivityMypgBinding
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationResult
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kakao.sdk.user.UserApiClient
 import kotlinx.android.synthetic.main.activity_maps.*
@@ -20,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_mypg.*
 import kotlinx.android.synthetic.main.item_viewcho.view.*
 import java.lang.System.load
 import java.net.URI
+import java.util.*
 
 class MypgActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityMypgBinding
@@ -28,6 +33,17 @@ class MypgActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMypgBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+
+
+        var nickname = findViewById<TextView>(R.id.txt_user_name)
+        UserApiClient.instance.me { user, error ->
+            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
+            Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
+
+        }
+
+
+
 
         UserApiClient.instance.me { user, error ->
             var user_pic = findViewById<ImageView>(R.id.img_user)
