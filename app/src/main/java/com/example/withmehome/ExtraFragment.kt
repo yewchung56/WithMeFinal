@@ -43,7 +43,7 @@ class ExtraFragment:Fragment(), View.OnClickListener {
         val event = Activity.findViewById<Button>(R.id.buttonallextra)
         event.setOnClickListener {
             list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
-            adapter.notifyDataSetChanged()
+            binding.recyclerViewextra.adapter?.notifyDataSetChanged()
         }
 
     }
@@ -64,7 +64,7 @@ class ExtraFragment:Fragment(), View.OnClickListener {
                 }
                 R.id.buttonallextra ->{
                     mutableListOf<Userdata>().add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
-                    adapter.notifyDataSetChanged()
+                    binding.recyclerViewextra.adapter?.notifyDataSetChanged()
                 }
             }
         }
