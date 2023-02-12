@@ -10,10 +10,16 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.withmehome.databinding.ActivityLoginBinding
+import com.example.withmehome.databinding.ActivityMapsBinding
+import com.kakao.sdk.auth.TokenManager.Companion.instance
+import com.kakao.sdk.auth.TokenManager.Companion.tokenKey
 import com.kakao.sdk.auth.model.OAuthToken
+import com.kakao.sdk.common.KakaoSdk
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_nickname_set.*
 import retrofit2.Call
 import retrofit2.Response
@@ -24,19 +30,23 @@ import kotlin.math.log
 
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
+    //private lateinit var aToken: String
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        KakaoSdk.init(this, "818712b89ed47ae9edee2e90fe16dcdf")
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val keyHash = Utility.getKeyHash(this)
         Log.d("Hash", keyHash)
-        var aToken : String = ""
 
-            // 로그인 정보 확인
+
+        // 로그인 정보 확인
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) {
                 Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
-            }
-            else if (tokenInfo != null) {
+            } else if (tokenInfo != null) {
                 Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, NicknameSetActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
@@ -75,32 +85,33 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             } else if (token != null) {
-                Toast.makeText(this, "로그인에 성공하였습니다. ${token.accessToken}", Toast.LENGTH_SHORT).show()
-                Log.d("token:","${token.accessToken}")
-                aToken = token.accessToken
+                Toast.makeText(this, "로그인에 성공하였습니다. ${token.accessToken}", Toast.LENGTH_SHORT)
+                    .show()
+                //aToken = token.accessToken
+                Log.d("token:",token.accessToken)
+                retrofitLogin(token.accessToken)
                 val intent = Intent(this, NicknameSetActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
             }
         }
-        val kakao_login_button = findViewById<ImageButton>(R.id.login_kakaoButton)
-
         // 로그인 버튼
-        kakao_login_button.setOnClickListener {
+        //val kakao_login_button = findViewById<ImageButton>(R.id.login_kakaoButton)
+        login_kakaoButton.setOnClickListener {
             if(UserApiClient.instance.isKakaoTalkLoginAvailable(this)){
                 UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
 
             }else{
                 UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
-                retrofitLogin(aToken)
             }
 
         }
 
     }
-    private fun retrofitLogin(aToken: String){
-        val service = RetrofitApi.LoginService
-        service.setLoginData(aToken)
+
+    private fun retrofitLogin(token: String){
+        val service = RetrofitApi.loginService
+        service.setLoginData(token)
             .enqueue(object : retrofit2.Callback<LoginData> {
                 override fun onResponse(
                     call: Call<LoginData>,

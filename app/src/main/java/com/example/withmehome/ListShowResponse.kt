@@ -74,3 +74,7 @@ data class MeetInfoGetResponse(
     @Json(name = "title")
     val title: String?
 )
+data class NicknameSetResponse(
+    @Json(name = "success")
+    val success: Boolean?
+)

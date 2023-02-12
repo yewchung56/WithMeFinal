@@ -36,12 +36,6 @@ class MypgActivity : AppCompatActivity() {
 
 
         var nickname = findViewById<TextView>(R.id.txt_user_name)
-        UserApiClient.instance.me { user, error ->
-            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
-            Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
-
-        }
-
 
 
 
