@@ -59,7 +59,8 @@ class ExtraallFragment:Fragment(), View.OnClickListener{
                     startActivity(intent)
                 }
                 R.id.buttonallextra -> {
-
+                    mutableListOf<Userdata>().add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
+                    binding.recyclerViewextraall.adapter?.notifyDataSetChanged()
                 }
             }
         }
