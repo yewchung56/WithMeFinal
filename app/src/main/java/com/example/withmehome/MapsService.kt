@@ -6,5 +6,6 @@ import retrofit2.http.Query
 
 interface MapsService {
         @GET("/api/members/address")
-        fun getAddressData(@Query("Nickname") nickname : String) : Call<LoginUserResponse>
+        fun getAddressData(@Query("Address") address : String) : Call<LoginUserResponse>
+
 }
