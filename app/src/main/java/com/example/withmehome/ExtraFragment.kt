@@ -23,9 +23,7 @@ class ExtraFragment:Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         val list = mutableListOf<Userdata>()
-        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
-        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1, "  기타"))
-        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type1, "  기타"))
+
         binding = FragmentExtraBinding.inflate(inflater, container,false)
         adapter = RecyclerItemAdapter(list)
         adapter.setHasStableIds(true)
@@ -40,6 +38,14 @@ class ExtraFragment:Fragment(), View.OnClickListener {
             val intent = Intent(getActivity(), WriteRecruitmentActivity::class.java)
             startActivity(intent)
         }
+
+        val Activity = layoutInflater.inflate(R.layout.fragment_extra,container,false)
+        val event = Activity.findViewById<Button>(R.id.buttonallextra)
+        event.setOnClickListener {
+            list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
+            adapter.notifyDataSetChanged()
+        }
+
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,6 +61,10 @@ class ExtraFragment:Fragment(), View.OnClickListener {
                 R.id.extra -> {
                     val intent = Intent(activity, WriteRecruitmentActivity::class.java)
                     startActivity(intent)
+                }
+                R.id.buttonallextra ->{
+                    mutableListOf<Userdata>().add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
+                    adapter.notifyDataSetChanged()
                 }
             }
         }
