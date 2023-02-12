@@ -111,7 +111,8 @@
         <activity android:name=".MypgActivity"
             android:exported="false"/>
         <activity android:name=".RecruitmentDetailDeadlineActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".ProfileActivity"
             android:exported="false"/>
         <activity android:name=".sharing_message"

@@ -3,14 +3,13 @@ package com.example.withmehome
 
 import com.squareup.moshi.Json
 
-data class LoginUserResponse(
+data class LoginData(
     @Json(name = "data")
-    val `data`: DataLogin?,
+    val `data`: LoginAcessData?,
     @Json(name = "success")
     val success: Boolean?
 )
-
-data class DataLogin(
+data class LoginAcessData(
     @Json(name = "accessToken")
     val accessToken: String?,
     @Json(name = "addressExistence")
