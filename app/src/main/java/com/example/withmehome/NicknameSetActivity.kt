@@ -52,6 +52,7 @@ class NicknameSetActivity : AppCompatActivity() {
         }
         // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
         btn_set_nickname_complete.setOnClickListener {
+            retrofitSetNick()
             startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
         }
     }
@@ -104,5 +105,11 @@ class NicknameSetActivity : AppCompatActivity() {
                     Log.d("TAG", t.message.toString())
                 }
             })
+    }
+
+    private fun retrofitSetNick() {
+        val service = RetrofitApi.nicknameSetService
+
+        serv
     }
 }
