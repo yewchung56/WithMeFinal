@@ -24,7 +24,8 @@ class NicknameSetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nickname_set)
 
-        /*val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
+
+       /* val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
         UserApiClient.instance.me { user, error ->
             nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
             Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
@@ -79,7 +80,7 @@ class NicknameSetActivity : AppCompatActivity() {
     private fun retrofitCheckDup() {
         val service = RetrofitApi.nicknameDupService
 
-        service.getNicknameData(edt_set_nickname_write_nickname.toString())
+        service.getNicknameData(edt_set_nickname_write_nickname.text.toString())
             .enqueue(object : retrofit2.Callback<NicknameDupResponse> {
                 override fun onResponse(
                     call: Call<NicknameDupResponse>,

@@ -48,4 +48,7 @@ object RetrofitApi {
     val loginService: LoginService by lazy {
         retrofit.create(LoginService::class.java)
     }
+    val recruitListService: RecruitListService by lazy {
+        retrofit.create(RecruitListService::class.java)
+    }
 }
