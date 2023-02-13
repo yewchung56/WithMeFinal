@@ -1,13 +1,10 @@
 package com.example.withmehome
 
+
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface LoginService {
-    @GET("/api/auth/login")
-    fun getLoginData(
-        @Query("User") user : String) : Call<LoginUserResponse>
-
+    @POST("/api/auth/login")
+    fun setLoginData(@Body KakaoAccessToken : String) : Call<LoginData>
 }
