@@ -4,13 +4,13 @@ package com.example.withmehome
 import com.squareup.moshi.Json
 
 data class WriteRecruitmentResponse(
-    @Json(name = "data")
+    @field:Json(name = "data")
     val `data`: DataWriteRec?,
-    @Json(name = "success")
+    @field:Json(name = "success")
     val success: Boolean?
 )
 
 data class DataWriteRec(
-    @Json(name = "meetId")
+    @field:Json(name = "meetId")
     val meetId: Int?
 )

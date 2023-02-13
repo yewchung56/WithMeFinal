@@ -1,31 +1,42 @@
 package com.example.withmehome
 
-import com.google.gson.annotations.SerializedName
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
-import retrofit2.http.Query
-import retrofit2.http.Url
-import java.net.URL
+import retrofit2.http.*
 
 interface WriteRecruitmentService {
-    data class Addresses (
-        @SerializedName("sido") val sido : String?,
-        @SerializedName("sgg") val sgg : String?
+
+    /*data class Addresses (
+        val addresses: List<Addresses>
+    ) {*/
+        data class Addresses(
+            val sido: String?,
+            val sgg: String?
+        )
+
+
+    data class RecData(
+        val addresses: Addresses?,
+        val meetCategory: String? = null,
+        val title: String? = null,
+        val link: String? = null,
+        val content: String? = null,
+        val minPeople: Int? = null,
+        val maxPeople: Int? = null
     )
-    data class RecData (
-        val addresses: Addresses,
-        val meetCategory: String,
-        val title: String,
-        val link: String,
-        val content: String,
-        val minPeople: Int,
-        val maxPeople: Int,
-    )
+
+
     @POST("/api/meets")
-    fun getWriteRecData(@Body recdata: RecData )
+    fun getWriteRecData(@Body meets: RecData): Call<WriteRecruitmentResponse>
+        /*Field("addresses")  addresses : Addresses?,
+        @Field("meetCategory") meetCategory: String?,
+        @Field("title") title: String?,
+        @Field("link") link: String?,
+        @Field("content") content: String?,
+        @Field("minPeople") minPeople: Int?,
+        @Field("maxPeople") maxPeople: Int?,*/
+
+
+    //@Query ("meetId") meetId: Int?
         /*@Body addresses: Addresses,
                         @Body meetCategory: String,
                         @Body title: String,
@@ -33,7 +44,7 @@ interface WriteRecruitmentService {
                         @Query ("content") content: String,
                         @Query ("minPeople") minPeople: Int,
                         @Query ("maxPeople") maxPeople: Int)*/
-    : Call<WriteRecruitmentResponse>
-    /*val list: MutableList<String>
-        get() = ArrayList()*/
+
+
+
 }

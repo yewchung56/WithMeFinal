@@ -1,5 +1,6 @@
 package com.example.withmehome
 
+import NicknameSetResponse
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -38,9 +39,11 @@ class NicknameSetActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 checkPassword(edt_set_nickname_write_nickname.toString())
+               // Log.d("nik",edt_set_nickname_write_nickname.toString())
             }
 
             override fun afterTextChanged(s: Editable?) {
+                //Log.d("nig",edt_set_nickname_write_nickname.toString())
 
             }
         })
@@ -51,6 +54,7 @@ class NicknameSetActivity : AppCompatActivity() {
         }
         // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
         btn_set_nickname_complete.setOnClickListener {
+            retrofitSet()
             startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
         }
     }
@@ -78,8 +82,7 @@ class NicknameSetActivity : AppCompatActivity() {
     // 닉네임 중복 확인
     private fun retrofitCheckDup() {
         val service = RetrofitApi.nicknameDupService
-
-        service.getNicknameData(edt_set_nickname_write_nickname.toString())
+        service.getNicknameData(edt_set_nickname_write_nickname.text.toString())
             .enqueue(object : retrofit2.Callback<NicknameDupResponse> {
                 override fun onResponse(
                     call: Call<NicknameDupResponse>,
@@ -88,6 +91,7 @@ class NicknameSetActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val result : Boolean? = response.body()?.data?.duplicated
                         Log.d("Tag", response.body()?.data?.duplicated.toString())
+                      //  Log.d("nick", edt_set_nickname_write_nickname.text.toString())
                         if (result == false) {
                             txt_set_nickname_alert.setTextColor(R.color.blue.toInt())
                             txt_set_nickname_alert.text = "사용 가능한 닉네임입니다."
@@ -100,7 +104,30 @@ class NicknameSetActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<NicknameDupResponse>, t: Throwable) {
-                    Log.d("TAG", t.message.toString())
+                    Log.d("TAG", "hi")
+                }
+            })
+    }
+
+    private fun retrofitSet() {
+        val service = RetrofitApi.nicknameSetService
+        service.setNicknameData(edt_set_nickname_write_nickname.text.toString())
+            .enqueue(object : retrofit2.Callback<NicknameSetResponse> {
+                override fun onResponse(
+                    call: Call<NicknameSetResponse>,
+                    response: Response<NicknameSetResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        Log.d("Tag", response.body()?.success.toString())
+                    }
+                    else {
+                        Log.d("t",call.toString())
+                        Log.d("nick", edt_set_nickname_write_nickname.text.toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<NicknameSetResponse>, t: Throwable) {
+                    Log.d("TAG", "hi")
                 }
             })
     }
