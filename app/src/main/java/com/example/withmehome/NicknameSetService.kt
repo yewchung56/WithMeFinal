@@ -6,5 +6,5 @@ import retrofit2.http.Query
 
 interface NicknameSetService {
     @PATCH("/api/members/nickname")
-    fun getNickSet(@Query("nickname") nickname : String): retrofit2.Call<NicknameSetService>
+    fun setNickname(@Query("nickname") nickname : String): retrofit2.Call<NicknameSetResponse>
 }

@@ -141,18 +141,24 @@ class WriteRecruitmentActivity : AppCompatActivity() {
         })
 
         // 제출 버튼 클릭
-        viewBinding.btnWriteComplete.setOnClickListener{
+        btn_write_complete.setOnClickListener{
             retorfitWriteRec()
-
             startActivity(Intent(this@WriteRecruitmentActivity,RecruitmentDetailActivity::class.java))
         }
     }
 
     private fun retorfitWriteRec() {
         val service = RetrofitApi.writeRecruitmentService
-
-        service.getWriteRecData(viewBinding.spinnerCity.toString(),viewBinding.spinnerDistrict.toString(), viewBinding.spinnerCategory.toString(),
-                                viewBinding.edtTitle.toString(), viewBinding.edtContent.toString(), 3, viewBinding.seekNum.progress)
+        service.getWriteRecData(
+            WriteRecruitmentService.RecData(
+                WriteRecruitmentService.Addresses(
+                viewBinding.spinnerCity.toString(),
+                viewBinding.spinnerDistrict.toString()),
+                viewBinding.spinnerCategory.toString(),
+                viewBinding.edtTitle.toString(),
+                "hi" ,viewBinding.edtContent.toString(), 3,
+                viewBinding.seekNum.progress
+            ))
             .enqueue(object : Callback<WriteRecruitmentResponse> {
                 override fun onResponse(
                     call: Call<WriteRecruitmentResponse>,
@@ -160,7 +166,6 @@ class WriteRecruitmentActivity : AppCompatActivity() {
                 ) {
                     Log.d("Tag", response.body().toString())
                 }
-
                 override fun onFailure(call: Call<WriteRecruitmentResponse>, t: Throwable) {
                     Log.d("Tag", t.message.toString())
                 }

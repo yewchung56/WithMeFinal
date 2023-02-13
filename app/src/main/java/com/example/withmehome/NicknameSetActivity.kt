@@ -89,7 +89,7 @@ class NicknameSetActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val result : Boolean? = response.body()?.data?.duplicated
                         Log.d("Tag", response.body()?.data?.duplicated.toString())
-                        if (result == true) {
+                        if (result == false) {
                             txt_set_nickname_alert.setTextColor(R.color.blue.toInt())
                             txt_set_nickname_alert.text = "사용 가능한 닉네임입니다."
                             btn_set_nickname_complete.isClickable = true
@@ -109,6 +109,19 @@ class NicknameSetActivity : AppCompatActivity() {
     private fun retrofitSetNick() {
         val service = RetrofitApi.nicknameSetService
 
-        serv
+        service.setNickname(edt_set_nickname_write_nickname.toString().trim())
+            .enqueue(object : retrofit2.Callback<NicknameSetResponse> {
+                override fun onResponse(
+                    call: Call<NicknameSetResponse>,
+                    response: Response<NicknameSetResponse>
+                ) {
+                    Log.d("TAG", response.body().toString())
+                }
+
+                override fun onFailure(call: Call<NicknameSetResponse>, t: Throwable) {
+                    Log.d("TAG", t.message.toString())
+                }
+
+            })
     }
 }
