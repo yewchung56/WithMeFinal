@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/message_sending"
+        android:enabled="true"
+        android:title="공유하기"
+        android:icon="@drawable/btn_message_sending"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/blocking"
+        android:enabled="true"
+        android:title="신고하기"
+        android:icon="@drawable/message_reporting"/>
+    <item
+        android:id="@+id/reporting"
+        android:enabled="true"
+        android:title="차단하기"
+        android:icon="@drawable/message_blocking"/>
+    <item
+        android:id="@+id/delete"
+        android:title="삭제하기"
+        android:enabled="true"
+        android:icon="@drawable/toolbar_menu_delete"/>
+
+</menu>

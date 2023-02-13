@@ -24,11 +24,10 @@ class NicknameSetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nickname_set)
 
-       /* val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
+        /*val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
         UserApiClient.instance.me { user, error ->
             nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
             Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
-
         }*/
 
         // 조건부 닉네임 설정

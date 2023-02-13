@@ -15,8 +15,11 @@ import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 import kotlinx.android.synthetic.main.activity_nickname_set.*
+import retrofit2.Call
+import retrofit2.Response
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
+import javax.security.auth.callback.Callback
 import kotlin.math.log
 
 
@@ -26,8 +29,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         val keyHash = Utility.getKeyHash(this)
         Log.d("Hash", keyHash)
+        var aToken : String = ""
 
-        // 로그인 정보 확인
+            // 로그인 정보 확인
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) {
                 Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
@@ -73,6 +77,7 @@ class LoginActivity : AppCompatActivity() {
             } else if (token != null) {
                 Toast.makeText(this, "로그인에 성공하였습니다. ${token.accessToken}", Toast.LENGTH_SHORT).show()
                 Log.d("token:","${token.accessToken}")
+                aToken = token.accessToken
                 val intent = Intent(this, NicknameSetActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
@@ -84,10 +89,35 @@ class LoginActivity : AppCompatActivity() {
         kakao_login_button.setOnClickListener {
             if(UserApiClient.instance.isKakaoTalkLoginAvailable(this)){
                 UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
+
             }else{
                 UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+                retrofitLogin(aToken)
             }
+
         }
+
+    }
+    private fun retrofitLogin(aToken: String){
+        val service = RetrofitApi.LoginService
+        service.setLoginData(aToken)
+            .enqueue(object : retrofit2.Callback<LoginData> {
+                override fun onResponse(
+                    call: Call<LoginData>,
+                    response: Response<LoginData>
+                ) {
+                    if (response.isSuccessful){
+                        val result: String? = response.body()?.data?.accessToken
+                        Log.d("tokeeeeeen", response.body()?.data?.accessToken.toString())
+                    }
+                }
+                override fun onFailure(call: Call<LoginData>, t: Throwable) {
+                    Log.d("tag", t.message.toString())
+                }
+
+            }
+            )
+
     }
 
 }
