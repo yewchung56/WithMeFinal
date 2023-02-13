@@ -39,7 +39,9 @@ data class Leader(
     @Json(name = "nickname")
     val nickname: String?,
     @Json(name = "phoneNumber")
-    val phoneNumber: String?
+    val phoneNumber: String?,
+    @Json(name = "profileImage")
+    val profileImage: String?
 )
 
 data class MeetInfoGetResponse(
@@ -74,7 +76,36 @@ data class MeetInfoGetResponse(
     @Json(name = "title")
     val title: String?
 )
-data class NicknameSetResponse(
-    @Json(name = "success")
-    val success: Boolean?
+
+data class Data(
+    @Json(name = "addresses")
+    val addresses: List<Addresse?>?,
+    @Json(name = "content")
+    val content: String?,
+    @Json(name = "endDate")
+    val endDate: Any?,
+    @Json(name = "leader")
+    val leader: Leader?,
+    @Json(name = "likeCount")
+    val likeCount: Int?,
+    @Json(name = "link")
+    val link: String?,
+    @Json(name = "maxPeople")
+    val maxPeople: Int?,
+    @Json(name = "meetCategory")
+    val meetCategory: String?,
+    @Json(name = "meetId")
+    val meetId: Int?,
+    @Json(name = "meetStatus")
+    val meetStatus: Any?,
+    @Json(name = "membersCount")
+    val membersCount: Int?,
+    @Json(name = "minPeople")
+    val minPeople: Int?,
+    @Json(name = "recruitStatus")
+    val recruitStatus: String?,
+    @Json(name = "startDate")
+    val startDate: Any?,
+    @Json(name = "title")
+    val title: String?
 )
