@@ -29,7 +29,6 @@ class NicknameSetActivity : AppCompatActivity() {
         UserApiClient.instance.me { user, error ->
             nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
             Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
-
         }*/
 
         // 조건부 닉네임 설정
@@ -81,7 +80,7 @@ class NicknameSetActivity : AppCompatActivity() {
     private fun retrofitCheckDup() {
         val service = RetrofitApi.nicknameDupService
 
-        service.getNicknameData(edt_set_nickname_write_nickname.toString())
+        service.getNicknameData(edt_set_nickname_write_nickname.text.toString())
             .enqueue(object : retrofit2.Callback<NicknameDupResponse> {
                 override fun onResponse(
                     call: Call<NicknameDupResponse>,
@@ -90,7 +89,7 @@ class NicknameSetActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val result : Boolean? = response.body()?.data?.duplicated
                         Log.d("Tag", response.body()?.data?.duplicated.toString())
-                        if (result == true) {
+                        if (result == false) {
                             txt_set_nickname_alert.setTextColor(R.color.blue.toInt())
                             txt_set_nickname_alert.text = "사용 가능한 닉네임입니다."
                             btn_set_nickname_complete.isClickable = true

@@ -95,7 +95,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onLocationResult(locationResult: LocationResult?) {
                 locationResult?.let{
                     for((i, location)in it.locations.withIndex()){
-                        Log.d("로케이션", "$i ${location.latitude}, ${location.longitude}")
+                       // Log.d("로케이션", "$i ${location.latitude}, ${location.longitude}")
                         setLastLocation(location)
 
                         var mGeocoder = Geocoder(applicationContext, Locale.KOREAN)
@@ -110,7 +110,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                             e.printStackTrace()
                         }
                         if (mResultList != null){
-                            Log.d("checkcurrentlocation", mResultList[0].getAddressLine(0))
+                            //Log.d("checkcurrentlocation", mResultList[0].getAddressLine(0))
                             currentLocation = mResultList[0].getAddressLine(0)
                             currentLocation = currentLocation.substring(9,20)
                         }
