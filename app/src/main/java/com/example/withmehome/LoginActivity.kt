@@ -23,13 +23,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_nickname_set.*
 import retrofit2.Call
 import retrofit2.Response
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-import javax.security.auth.callback.Callback
 import kotlin.math.log
 
 
 class LoginActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityLoginBinding
     //private lateinit var aToken: String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,6 +104,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+
 
     }
 

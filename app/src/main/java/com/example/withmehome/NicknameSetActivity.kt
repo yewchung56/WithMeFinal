@@ -39,11 +39,9 @@ class NicknameSetActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 checkPassword(edt_set_nickname_write_nickname.toString())
-               // Log.d("nik",edt_set_nickname_write_nickname.toString())
             }
 
             override fun afterTextChanged(s: Editable?) {
-                //Log.d("nig",edt_set_nickname_write_nickname.toString())
 
             }
         })
@@ -91,7 +89,6 @@ class NicknameSetActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val result : Boolean? = response.body()?.data?.duplicated
                         Log.d("Tag", response.body()?.data?.duplicated.toString())
-                      //  Log.d("nick", edt_set_nickname_write_nickname.text.toString())
                         if (result == false) {
                             txt_set_nickname_alert.setTextColor(R.color.blue.toInt())
                             txt_set_nickname_alert.text = "사용 가능한 닉네임입니다."

@@ -16,6 +16,7 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
 
     inner class MultiViewHolder1(private val itemBinding: ItemViewBinding): ViewHolder(itemBinding.root){
         private val context = itemBinding.root.context
+
         fun bind(data: Userdata){
             itemBinding.title.text = data.title
             itemBinding.name.text = data.name
