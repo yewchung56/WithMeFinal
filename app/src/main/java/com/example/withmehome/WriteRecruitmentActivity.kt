@@ -11,6 +11,7 @@ import android.widget.SeekBar
 import com.example.withmehome.databinding.ActivityWriteRecruitmentBinding
 import kotlinx.android.synthetic.main.activity_write_recruitment.*
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class WriteRecruitmentActivity : AppCompatActivity() {
@@ -131,56 +132,50 @@ class WriteRecruitmentActivity : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 binding.txtFinalNum.text = progress.toString()
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
             }
+
         })
-        /*val addresses = List(2,(binding.spinnerCity.selectedItem.toString(),
-            binding.spinnerDistrict.selectedItem.toString())*/
-        /*val list =  HashMap<String, Objects>(binding.spinnerCity.selectedItem.toString(),
-            binding.spinnerDistrict.selectedItem.toString())*/
 
         // 제출 버튼 클릭
         btn_write_complete.setOnClickListener{
-            retorfitWriteRec(binding.spinnerDistrict.selectedItem.toString(),binding.spinnerDistrict.selectedItem.toString(),)
+            retorfitWriteRec()
             startActivity(Intent(this@WriteRecruitmentActivity,RecruitmentDetailActivity::class.java))
         }
     }
 
     private fun retorfitWriteRec() {
-            /*val list =  <String, Objects>(binding.spinnerCity.selectedItem.toString(),
-            binding.spinnerDistrict.selectedItem.toString())*/
         val service = RetrofitApi.writeRecruitmentService
-        service.getWriteRecData(
-            WriteRecruitmentService.RecData(WriteRecruitmentService.Addresses(binding.spinnerCity.selectedItem.toString(),
-                binding.spinnerDistrict.selectedItem.toString()) ,"STUDY","HI",
-                /*binding.spinnerCategory.selectedItem.toString(),
-                binding.edtTitle.text.toString(),*/
-                "hi" , binding.edtContent.text.toString(), 3,
-               1))
-            .enqueue(object : retrofit2.Callback<WriteRecruitmentResponse> {
-                    override fun onResponse(
-                call: Call<WriteRecruitmentResponse>,
-                response: Response<WriteRecruitmentResponse>
-                ) {
-                        Log.e("d", response.body()?.data?.meetId.toString())
-                        if (response.isSuccessful) {
-                            Log.d("Tag", response.body()?.data?.meetId.toString())
-                        }else{
-                            Log.d("ㅎㅁ", call.toString())
-                            Log.d("tag", binding.spinnerCategory.selectedItem.toString())
-                            Log.d("tag", binding.edtTitle.text.toString())
-                            Log.d("hi" ,binding.edtContent.text.toString())
-                            //Log.d("seeknum", binding.seekNum.progress.toString())
-                        }
-                    }
 
+        //address.add(viewBinding.spinnerCity.selectedItem.toString())
+        val address = listOf<String>(viewBinding.spinnerCity.selectedItem.toString(),viewBinding.spinnerDistrict.selectedItem.toString())
+
+        service.getWriteRecData(RecData(address,
+                "STUDY",
+                viewBinding.edtTitle.text.toString(),
+                "hi" ,viewBinding.edtContent.text.toString(), 3,
+                viewBinding.seekNum.progress
+        ))
+            .enqueue(object : Callback<WriteRecruitmentResponse> {
+                override fun onResponse(
+                    call: Call<WriteRecruitmentResponse>,
+                    response: Response<WriteRecruitmentResponse>
+                ) {
+                    if(response.isSuccessful){
+                        Log.d("Tag", response.body()?.success.toString())
+                        Log.d("Tag", response.body()?.data?.meetId.toString())
+                    }
+                    else{
+                        Log.d("Tag",response.body()?.success.toString())
+                    }
+                }
                 override fun onFailure(call: Call<WriteRecruitmentResponse>, t: Throwable) {
                     Log.d("Tag", t.message.toString())
                 }
-
-
             })
     }
 }

@@ -1,6 +1,19 @@
 package com.example.withmehome
 
+import com.google.gson.JsonObject
+import com.google.gson.annotations.SerializedName
+import org.json.JSONObject
 import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FieldMap
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Header
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import retrofit2.http.Query
+import retrofit2.http.Url
+import java.net.URL
 import retrofit2.http.*
 
 interface WriteRecruitmentService {
@@ -25,18 +38,10 @@ interface WriteRecruitmentService {
     )
 
 
+
     @POST("/api/meets")
-    fun getWriteRecData(@Body meets: RecData): Call<WriteRecruitmentResponse>
-        /*Field("addresses")  addresses : Addresses?,
-        @Field("meetCategory") meetCategory: String?,
-        @Field("title") title: String?,
-        @Field("link") link: String?,
-        @Field("content") content: String?,
-        @Field("minPeople") minPeople: Int?,
-        @Field("maxPeople") maxPeople: Int?,*/
-
-
-    //@Query ("meetId") meetId: Int?
+    @Headers("accept: application/json", "content-type: application/json")
+    fun getWriteRecData(@Body jsonparams: RecData )
         /*@Body addresses: Addresses,
                         @Body meetCategory: String,
                         @Body title: String,
@@ -44,7 +49,7 @@ interface WriteRecruitmentService {
                         @Query ("content") content: String,
                         @Query ("minPeople") minPeople: Int,
                         @Query ("maxPeople") maxPeople: Int)*/
-
-
-
+    : Call<WriteRecruitmentResponse>
+    /*val list: MutableList<String>
+        get() = ArrayList()*/
 }
