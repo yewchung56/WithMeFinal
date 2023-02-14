@@ -20,5 +20,19 @@
     <string name="message_your_area">광진구</string>
     <string name="message_my_area">강남구</string>
     <string name="message_sharing_date">2023.01.09 (월)</string>
+    <string name="manageInfo_title">내 정보 관리</string>
+    <string name="manageInfo_area">강남구</string>
+    <string name="manageInfo_reliability">위드미 신뢰도</string>
+    <string name="manageInfo_reliability_percent">87.8%</string>
+    <string name="manageInfo_Identification">본인인증</string>
+    <string name="manageInfo_Identification_phoneNumber">휴대폰 번호</string>
+    <string name="manageInfo_phoneNumber">010-4476-7637</string>
+    <string name="manageInfo_Identification_birthday">생년월일</string>
+    <string name="manageInfo_birthday">2000.10.01</string>
+    <string name="manageInfo_Identificaiton_gender">성별</string>
+    <string name="manageInfo_gender">여</string>
+    <string name="manageInfo_Identification_area">동네인증</string>
+    <string name="manageInfo_Identification_location">위치</string>
+    <string name="manageInfo_location">중계동</string>
 
 </resources>
