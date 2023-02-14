@@ -1,12 +1,17 @@
 package com.example.withmehome
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.withmehome.databinding.ItemView2Binding
 import com.example.withmehome.databinding.ItemViewBinding
+import retrofit2.Call
+
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 
 class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<ViewHolder>() {
@@ -23,8 +28,8 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
             itemBinding.date.text = data.date
             itemBinding.like.text = data.like
             itemBinding.category.text = data.category
-
             itemView.setOnClickListener{
+                retrofitViewRecDetail()
                 val intent = Intent(context, RecruitmentDetailActivity::class.java)
                 intent.run { context.startActivity(this) }
             }
@@ -40,6 +45,7 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
             itemBinding2.category.text = data.category
 
             itemView.setOnClickListener{
+                retrofitViewRecDetail()
                 val intent = Intent(context2, RecruitmentDetailActivity::class.java)
                 intent.run { context2.startActivity(this) }
             }
@@ -79,7 +85,6 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
         }
     }
 
-
     override fun getItemCount(): Int {
         return items.size
     }
@@ -92,5 +97,27 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
         items = data
         notifyDataSetChanged()
     }
+
+    private fun retrofitViewRecDetail(){
+        val service = RetrofitApi.recruitmentDetailService
+        service.getRecDetailData(2)
+            .enqueue(object : retrofit2.Callback<RecruitmentDetailResponse> {
+                override fun onResponse(
+                    call: Call<RecruitmentDetailResponse>,
+                    response: Response<RecruitmentDetailResponse>
+                ) {
+                    if (response.isSuccessful){
+                        Log.d("su","dd")
+                    }
+                    else {
+                        Log.d("f","fail")
+                    }
+                }
+                override fun onFailure(call: Call<RecruitmentDetailResponse>, t: Throwable) {
+                    Log.d("F","F")
+                }
+            })
+    }
+
 
 }

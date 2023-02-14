@@ -69,7 +69,6 @@ class WriteRecruitmentActivity : AppCompatActivity() {
         binding.spinnerCategory.adapter = categoryAdapter
         binding.spinnerCity.adapter = regionAdapter
 
-
         // 어뎁터가 연결된 뷰를 이용해서 이벤트 설정
         // 카테고리 스피너
         binding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -148,34 +147,29 @@ class WriteRecruitmentActivity : AppCompatActivity() {
         }
     }
 
+    //address.add(viewBinding.spinnerCity.selectedItem.toString())
+    //val address = listOf<String>( binding.spinnerCity.selectedItem.toString(),binding.spinnerDistrict.selectedItem.toString())
     private fun retorfitWriteRec() {
+        //val address : List<WriteRecruitmentService.Addresse> = listOf(WriteRecruitmentService.Addresse("hi","hi"))
         val service = RetrofitApi.writeRecruitmentService
-
-        //address.add(viewBinding.spinnerCity.selectedItem.toString())
-        val address = listOf<String>(viewBinding.spinnerCity.selectedItem.toString(),viewBinding.spinnerDistrict.selectedItem.toString())
-
-        service.getWriteRecData(RecData(address,
-                "STUDY",
-                viewBinding.edtTitle.text.toString(),
-                "hi" ,viewBinding.edtContent.text.toString(), 3,
-                viewBinding.seekNum.progress
-        ))
-            .enqueue(object : Callback<WriteRecruitmentResponse> {
+        /*iservice.(
+        ).enqueue(object : Callback<WriteRecruitmentResponse> {
                 override fun onResponse(
                     call: Call<WriteRecruitmentResponse>,
                     response: Response<WriteRecruitmentResponse>
                 ) {
-                    if(response.isSuccessful){
+                    f(response.isSuccessful){
                         Log.d("Tag", response.body()?.success.toString())
                         Log.d("Tag", response.body()?.data?.meetId.toString())
                     }
                     else{
-                        Log.d("Tag",response.body()?.success.toString())
+                        Log.d("fail","k")
                     }
                 }
                 override fun onFailure(call: Call<WriteRecruitmentResponse>, t: Throwable) {
                     Log.d("Tag", t.message.toString())
                 }
             })
+    }*/
     }
 }

@@ -2,6 +2,7 @@ package com.example.withmehome
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.withmehome.databinding.FragmentExtraallBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class ExtraallFragment:Fragment(), View.OnClickListener{
     private lateinit var binding: FragmentExtraallBinding
@@ -65,4 +69,5 @@ class ExtraallFragment:Fragment(), View.OnClickListener{
             }
         }
     }
+
 }
