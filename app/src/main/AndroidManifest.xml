@@ -25,6 +25,12 @@
         <activity
             android:name=".LeaveMessage"
             android:exported="false" />
+            android:name=".ManageinfoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".WriteReviewActivity"
             android:exported="false" />
@@ -53,6 +59,7 @@
         <activity
             android:name=".recruitment_detail_leader"
             android:exported="false" />
+            android:exported="false"></activity>
         <activity
             android:name=".recruitment_detail_deadline"
             android:exported="false">
@@ -118,7 +125,25 @@
         <activity
             android:name=".RecruitmentDetailDeadlineActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+             android:parentActivityName=".MainActivity" />
+            android:name=".RecruitmentDetailActivity"
+            android:exported="false"
+            android:theme="@style/MaterialCustomRoot" />
+        <activity
+            android:name=".NicknameSetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MeetmainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MypgActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecruitmentDetailDeadlineActivity"
+            android:exported="false"
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />

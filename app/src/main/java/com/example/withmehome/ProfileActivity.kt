@@ -34,12 +34,11 @@ class ProfileActivity : AppCompatActivity() {
         viewBinding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        // 글라이더 코드
+        //글라이더 로드
         var nickname = findViewById<TextView>(R.id.txt_user_name)
         var email = findViewById<TextView>(R.id.txt_user_address)
         val imageView = findViewById<ImageView>(R.id.img_user)
         val defaultImage = R.drawable.ic_recruitment_detail_photo
-
 
         UserApiClient.instance.me { user, error ->
             nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
