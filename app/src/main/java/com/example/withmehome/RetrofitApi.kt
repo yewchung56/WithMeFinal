@@ -17,6 +17,7 @@ object RetrofitApi {
     class AppInterceptor : Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
+
             /*val addresses : ArrayList<String>*/
             val token = "Bearer " +
                     "eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJ5ZXdjaHVuZzU2QG5hdmVyLmNvbSIsImlhdCI6MTY3NjM3Nzk2MCwiZXhwIjoxNjc2OTgyNzYwfQ.azTwqcfLv0mtnexeDIFBuWHFv5WroVNqS5I7EcIr_wQ"
@@ -46,20 +47,22 @@ object RetrofitApi {
     val nicknameDupService: NicknameDupService by lazy {
         retrofit.create(NicknameDupService::class.java)
     }
-    val writeRecruitmentService: MeetFormRequest by lazy {
-        retrofit.create(MeetFormRequest::class.java)
+//    val writeRecruitmentService: MeetFormRequest by lazy {
+//        retrofit.create(MeetFormRequest::class.java)
+//    }
+
+    val nicknameSetService: NicknameSetService by lazy {
+        retrofit.create(NicknameSetService::class.java)
     }
+
     val loginService: LoginService by lazy {
         retrofit.create(LoginService::class.java)
     }
     val recruitListService: RecruitListService by lazy {
         retrofit.create(RecruitListService::class.java)
     }
-    val nicknameSetService: NicknameSetService by lazy {
-        retrofit.create(NicknameSetService::class.java)
-    }
     val recruitmentDetailService : RecruimentDetailService by lazy {
         retrofit.create(RecruimentDetailService::class.java)
     }
 }
-//VMbYn1x2CQxthH8anTbZ1nfh3FKYHk-LaioerUbcCiolDwAAAYZP6bCf
+

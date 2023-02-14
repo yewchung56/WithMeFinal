@@ -1,6 +1,5 @@
 package com.example.withmehome
 
-import NicknameSetResponse
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -116,6 +115,7 @@ class NicknameSetActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val result: Boolean? = response.body()?.data?.duplicated
                         Log.d("Tag", response.body()?.data?.duplicated.toString())
+
                         if (result == false) {
                             txt_set_nickname_alert.setTextColor(R.color.blue.toInt())
                             txt_set_nickname_alert.text = "사용 가능한 닉네임입니다."
@@ -129,7 +129,27 @@ class NicknameSetActivity : AppCompatActivity() {
 
                 override fun onFailure(call: Call<NicknameDupResponse>, t: Throwable) {
                     Log.d("fail", "hi")
+
                 }
+            })
+    }
+
+    private fun retrofitSetNick() {
+        val service = RetrofitApi.nicknameSetService
+
+        service.getNickname(edt_set_nickname_write_nickname.toString().trim())
+            .enqueue(object : retrofit2.Callback<NicknameSetResponse> {
+                override fun onResponse(
+                    call: Call<NicknameSetResponse>,
+                    response: Response<NicknameSetResponse>
+                ) {
+                    Log.d("Nickname Set success", response.body().toString())
+                }
+
+                override fun onFailure(call: Call<NicknameSetResponse>, t: Throwable) {
+                    Log.d("Nickname Set Fail", t.message.toString())
+                }
+
             })
     }
 }

@@ -40,8 +40,6 @@ class ProfileActivity : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.img_user)
         val defaultImage = R.drawable.ic_recruitment_detail_photo
 
-
-
         UserApiClient.instance.me { user, error ->
             nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
             email.text = "${user?.kakaoAccount?.email}"
@@ -57,8 +55,13 @@ class ProfileActivity : AppCompatActivity() {
                 .into(imageView) // 이미지를 넣을 뷰
         }
 
+
+        val list = mutableListOf<ProfileRevData>()
+        list.add(ProfileRevData("동구리","운동에 진심이시면서 또 활발하고 재치도 있으신 분이셔서 내내 즐거웠습니다! 아는 것도 많은시더라구요~! 나중에 또 같이 운동하면 좋겠습니다."))
+        list.add(ProfileRevData("나는야개자이너","실력 정말 좋으시고 출석도 잘하시기는 한데 바쁘신지 연락이 잘 안되는 편이셔서 아쉬웠어요ㅠ"))
+
         recyclerView = findViewById(R.id.horizontal_recy)
-        adapter = Rev_RecyclerView()
+        adapter = Rev_RecyclerView(list)
 
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = adapter
