@@ -83,6 +83,9 @@ class MypgActivity : AppCompatActivity() {
         btn_wishlist.setOnClickListener {
             startActivity(Intent(this, LikeActivity::class.java))
         }
+        btn_review_list.setOnClickListener {
+            startActivity(Intent(this, ReviewActivity::class.java))
+        }
 
         btn_logout.setOnClickListener {
             UserApiClient.instance.logout { error ->

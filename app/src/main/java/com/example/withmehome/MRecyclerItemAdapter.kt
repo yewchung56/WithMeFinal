@@ -12,15 +12,17 @@ class MRecyclerItemAdapter(var items: List<MUserdata>) : RecyclerView.Adapter<MR
     private lateinit var itemBinding: ItemViewmessageBinding
 
     inner class ViewHolder(private val itemBinding: ItemViewmessageBinding): RecyclerView.ViewHolder(itemBinding.root){
+        private val context = itemBinding.root.context
         fun bind(data: MUserdata){
-
-            /*itemView.setOnClickListener{
-                val intent = Intent(context, RecruitmentDetailActivity::class.java)
-                intent.run { context.startActivity(this) }
-            }*/
             itemBinding.name.text = data.name
             itemBinding.content.text = data.content
             itemBinding.date.text = data.date
+
+            itemView.setOnClickListener{
+                val intent = Intent(context, sharing_message::class.java)
+                intent.run { context.startActivity(this) }
+            }
+
 
 
         }

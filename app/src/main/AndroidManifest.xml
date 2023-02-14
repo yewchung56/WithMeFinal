@@ -20,6 +20,21 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="31">
         <activity
+            android:name=".RecruitcsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecruitetcActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecruitlookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecruittripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecruitwalkActivity"
+            android:exported="false" />
+        <activity
             android:name=".LeaveMessageActivity"
             android:exported="false" />
         <activity

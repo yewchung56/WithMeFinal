@@ -4,7 +4,5 @@ data class LUserdata (
     val title : String,
     val name : String,
     val date : String,
-    val like : String,
-    val type : Int,
-    val category: String
+    val like : String
 )
