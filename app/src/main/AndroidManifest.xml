@@ -7,18 +7,24 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:enableOnBackInvokedCallback="true"
-        android:usesCleartextTraffic="true"
         android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Withmehome"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="31">
+        <activity
+            android:name=".LeaveMessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LeaveMessage"
+            android:exported="false" />
         <activity
             android:name=".ManageinfoActivity"
             android:exported="false">
@@ -32,8 +38,7 @@
 
         <uses-library
             android:name="org.apache.http.legacy"
-            android:required="false" />
-        <!-- 구글지도 api key -->
+            android:required="false" /> <!-- 구글지도 api key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCJXhM_z8-RuMgMnC518aM-R6jX6ZLPB6g" />
@@ -54,8 +59,7 @@
         </activity>
         <activity
             android:name=".recruitment_detail_leader"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".recruitment_detail_deadline"
             android:exported="false">
@@ -68,10 +72,9 @@
             android:name="android.app.lib_name"
             android:value="" />
 
-
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -86,52 +89,55 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
-                <data android:host="oauth"
+                <data
+                    android:host="oauth"
                     android:scheme="kakao818712b89ed47ae9edee2e90fe16dcdf" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MapsActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".NaviActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".WriteRecruitmentActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
-        <activity android:name=".RecruitmentDetailActivity"
-            android:theme="@style/MaterialCustomRoot"
-            android:exported="false"/>
-        <activity android:name=".NicknameSetActivity"
-            android:exported="false"/>
-        <activity android:name=".MeetmainActivity"
-            android:exported="false"/>
-        <activity android:name=".MessageActivity"
-            android:exported="false"/>
-        <activity android:name=".MypgActivity"
-            android:exported="false"/>
-        <activity android:name=".RecruitmentDetailDeadlineActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".RecruitmentDetailActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".ProfileActivity"
-            android:exported="false"/>
-        <activity android:name=".sharing_message"
+            android:theme="@style/MaterialCustomRoot" />
+        <activity
+            android:name=".NicknameSetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MeetmainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MypgActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecruitmentDetailDeadlineActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sharing_message"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-        <activity android:name=".LikeActivity"
-            android:exported="false">
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 
-</application>
 </manifest>
