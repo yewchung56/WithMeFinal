@@ -46,9 +46,9 @@ object RetrofitApi {
     val nicknameDupService: NicknameDupService by lazy {
         retrofit.create(NicknameDupService::class.java)
     }
-    val writeRecruitmentService: MeetFormRequest by lazy {
+    /*val writeRecruitmentService: MeetFormRequest by lazy {
         retrofit.create(MeetFormRequest::class.java)
-    }
+    }*/
     val loginService: LoginService by lazy {
         retrofit.create(LoginService::class.java)
     }

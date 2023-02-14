@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.bumptech.glide.Glide
 import com.example.withmehome.databinding.ActivityMessageBinding
 import com.example.withmehome.databinding.ActivityMypgBinding
 import com.google.android.gms.location.LocationCallback
@@ -36,8 +37,30 @@ class MypgActivity : AppCompatActivity() {
 
 
         var nickname = findViewById<TextView>(R.id.txt_user_name)
+        var email = findViewById<TextView>(R.id.txt_user_address)
+        val imageView = findViewById<ImageView>(R.id.img_user)
+        val defaultImage = R.drawable.ic_recruitment_detail_photo
 
 
+
+        UserApiClient.instance.me { user, error ->
+            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
+            email.text = "${user?.kakaoAccount?.email}"
+            Log.d("닉네임:","${user?.kakaoAccount?.email}")
+            var url = "${user?.kakaoAccount?.profile?.thumbnailImageUrl}"
+
+            Glide.with(this)
+                .load(url) // 불러올 이미지 url
+                .placeholder(defaultImage) // 이미지 로딩 시작하기 전 표시할 이미지
+                .error(defaultImage) // 로딩 에러 발생 시 표시할 이미지
+                .fallback(defaultImage) // 로드할 url 이 비어있을(null 등) 경우 표시할 이미지
+                .circleCrop() // 동그랗게 자르기
+                .into(imageView) // 이미지를 넣을 뷰
+        }
+
+
+        //var prof = findViewById<ImageView>(R.id.img_user)
+        //prof.setImageURI()="${user.kakaoAccount?.profile?.thumbnailImageUrl}"
 
         UserApiClient.instance.me { user, error ->
             var user_pic = findViewById<ImageView>(R.id.img_user)
@@ -50,7 +73,9 @@ class MypgActivity : AppCompatActivity() {
                         "\n이메일: ${user.kakaoAccount?.email}" +
                         "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
                         "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
+
             }
+
              }
 
         btn_wishlist.setOnClickListener {

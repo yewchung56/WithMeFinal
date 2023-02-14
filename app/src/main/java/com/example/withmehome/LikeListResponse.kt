@@ -49,3 +49,15 @@ data class Addresse(
     @field:Json(name = "sido")
     val sido: String?
 )
+data class Leader(
+    @field:Json(name = "memberId")
+    val memberId: Int?,
+    @field:Json(name = "nickname")
+    val nickname: String?,
+    @field:Json(name = "profileImage")
+    val profileImage: String?,
+    @field:Json(name = "sggAddress")
+    val sggAddress: String?,
+    @field:Json(name = "trustPoint")
+    val trustPoint: Int?
+)

@@ -9,9 +9,6 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface NicknameSetService {
-    @Headers(
-        "accept: application/json",
-        "content-type: application/json")
     @PATCH("/api/members/nickname")
     fun getNickname(@Body nickname: String) : Call<NicknameSetResponse>
 }

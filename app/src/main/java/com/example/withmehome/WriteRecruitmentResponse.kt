@@ -1,3 +1,4 @@
+/*
 package com.example.withmehome
 
 
@@ -8,4 +9,4 @@ data class WriteRecruitmentResponse(
     val meetFormRequest: MeetFormRequest?,
     @Json(name = "meetImage")
     val meetImage: String?
-)
+)*/

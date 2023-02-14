@@ -188,7 +188,7 @@ class WriteRecruitmentActivity : AppCompatActivity() {
 
         // 제출 버튼 클릭
         btn_write_complete.setOnClickListener {
-            retorfitWriteRec()
+            //retorfitWriteRec()
             startActivity(
                 Intent(
                     this@WriteRecruitmentActivity,
@@ -235,6 +235,7 @@ class WriteRecruitmentActivity : AppCompatActivity() {
 
     //address.add(viewBinding.spinnerCity.selectedItem.toString())
     //val address = listOf<String>( binding.spinnerCity.selectedItem.toString(),binding.spinnerDistrict.selectedItem.toString())
+/*
     private fun retorfitWriteRec() {
         val service = RetrofitApi.writeRecruitmentService
         service.WriteRecService(
@@ -256,5 +257,6 @@ class WriteRecruitmentActivity : AppCompatActivity() {
                 }
             })
     }
+*/
 
 }

@@ -21,6 +21,7 @@ import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_nickname_set.*
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 import kotlin.math.log
@@ -46,7 +47,9 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
             } else if (tokenInfo != null) {
                 Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, NicknameSetActivity::class.java)
+                Log.d("logintoken", tokenKey)
+                //uEX9biiAZiNI2MEi2MZwHzqlglWEsweAbmr3oSbrCisMqAAAAYZPlPe6
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
             }
@@ -82,11 +85,12 @@ class LoginActivity : AppCompatActivity() {
                         Log.d("[카카오로그인]", "기타 에러")
                     }
                 }
+
             } else if (token != null) {
-                Toast.makeText(this, "로그인에 성공하였습니다. ${token.accessToken}", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT)
                     .show()
                 //aToken = token.accessToken
-                Log.d("token:",token.accessToken)
+                Log.d("token:", token.accessToken)
                 retrofitLogin(token.accessToken)
                 val intent = Intent(this, NicknameSetActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
