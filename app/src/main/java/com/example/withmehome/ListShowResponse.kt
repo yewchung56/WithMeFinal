@@ -75,8 +75,6 @@ data class MeetInfoGetResponse(
     val startDate: String?,
     @Json(name = "title")
     val title: String?
-<<<<<<< HEAD
-=======
 )
 
 data class Data(
@@ -110,5 +108,4 @@ data class Data(
     val startDate: Any?,
     @Json(name = "title")
     val title: String?
->>>>>>> c8115a91c44c9b9671ac33acd27c939e30571dbf
 )
