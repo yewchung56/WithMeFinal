@@ -17,18 +17,19 @@ data class Address(
     val sido: String?
 )
 
-data class Addresse(
+/*data class Addresse(
     @Json(name = "sgg")
     val sgg: String?,
     @Json(name = "sido")
     val sido: String?
-)
+)*/
 
 data class DataListShow(
     @Json(name = "meetInfoGetResponses")
     val meetInfoGetResponses: List<MeetInfoGetResponse?>?
 )
 
+/*
 data class Leader(
     @Json(name = "address")
     val address: Address?,
@@ -43,6 +44,7 @@ data class Leader(
     @Json(name = "profileImage")
     val profileImage: String?
 )
+*/
 
 data class MeetInfoGetResponse(
     @Json(name = "addresses")
@@ -77,6 +79,7 @@ data class MeetInfoGetResponse(
     val title: String?
 )
 
+/*
 data class Data(
     @Json(name = "addresses")
     val addresses: List<Addresse?>?,
@@ -108,4 +111,4 @@ data class Data(
     val startDate: Any?,
     @Json(name = "title")
     val title: String?
-)
+)*/

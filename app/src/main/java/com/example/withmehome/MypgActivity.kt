@@ -53,6 +53,10 @@ class MypgActivity : AppCompatActivity() {
             }
              }
 
+        btn_wishlist.setOnClickListener {
+            startActivity(Intent(this, LikeActivity::class.java))
+        }
+
         btn_logout.setOnClickListener {
             UserApiClient.instance.logout { error ->
                 if (error != null) {
