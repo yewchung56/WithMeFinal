@@ -1,9 +1,10 @@
+
 package com.example.withmehome
 
-
 import com.squareup.moshi.Json
+import retrofit2.http.Field
 
 data class NicknameSetResponse(
-    @Json(name = "success")
+    @field:Json(name = "success")
     val success: Boolean?
 )

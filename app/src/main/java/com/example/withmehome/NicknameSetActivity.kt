@@ -24,8 +24,7 @@ class NicknameSetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nickname_set)
 
-
-       /* val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
+        /*val nickname = findViewById<TextView>(R.id.edt_set_nickname_write_nickname)
         UserApiClient.instance.me { user, error ->
             nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
             Log.d("닉네임:", "${user?.kakaoAccount?.profile?.nickname}")
@@ -38,7 +37,7 @@ class NicknameSetActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                checkPassword(edt_set_nickname_write_nickname.toString())
+                checkPassword(edt_set_nickname_write_nickname.text.toString())
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -52,10 +51,36 @@ class NicknameSetActivity : AppCompatActivity() {
         }
         // 가입완료 버튼 클릭 시 동네 인증 화면으로 이동
         btn_set_nickname_complete.setOnClickListener {
-            retrofitSetNick()
+            Log.d("d", edt_set_nickname_write_nickname.text.toString())
+            retrofitSet(edt_set_nickname_write_nickname.text.toString())
             startActivity(Intent(this@NicknameSetActivity, MapsActivity::class.java))
         }
     }
+
+    private fun retrofitSet(edt_set_nickname_write_nickname: String) {
+        val service = RetrofitApi.nicknameSetService
+        service.getNickname(edt_set_nickname_write_nickname)
+            .enqueue(object : retrofit2.Callback<NicknameSetResponse> {
+                override fun onResponse(
+                    call: Call<NicknameSetResponse>,
+                    response: Response<NicknameSetResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val result: Boolean? = response.body()?.success
+                        Log.d("Tag", response.body()?.success.toString())
+                    } else {
+                        Log.d("fail", edt_set_nickname_write_nickname)
+                    }
+                }
+
+                override fun onFailure(call: Call<NicknameSetResponse>, t: Throwable) {
+                    Log.d("TAG", "NICKNAMERESPONSEFAIL")
+                }
+
+            })
+    }
+
+
     // 조건만족 여부에 따른 이벤트
     private fun checkPassword(password: String): Boolean {
         // 비밀번호 조건 정규식 : 2~10 숫자, 문자만
@@ -77,10 +102,10 @@ class NicknameSetActivity : AppCompatActivity() {
         }
     }
 
+
     // 닉네임 중복 확인
     private fun retrofitCheckDup() {
         val service = RetrofitApi.nicknameDupService
-
         service.getNicknameData(edt_set_nickname_write_nickname.text.toString())
             .enqueue(object : retrofit2.Callback<NicknameDupResponse> {
                 override fun onResponse(
@@ -88,8 +113,9 @@ class NicknameSetActivity : AppCompatActivity() {
                     response: Response<NicknameDupResponse>
                 ) {
                     if (response.isSuccessful) {
-                        val result : Boolean? = response.body()?.data?.duplicated
-                        Log.d("Duplicate Success", response.body()?.data?.duplicated.toString())
+                        val result: Boolean? = response.body()?.data?.duplicated
+                        Log.d("Tag", response.body()?.data?.duplicated.toString())
+
                         if (result == false) {
                             txt_set_nickname_alert.setTextColor(R.color.blue.toInt())
                             txt_set_nickname_alert.text = "사용 가능한 닉네임입니다."
@@ -102,7 +128,8 @@ class NicknameSetActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<NicknameDupResponse>, t: Throwable) {
-                    Log.d("Duplicate Failed", t.message.toString())
+                    Log.d("fail", "hi")
+
                 }
             })
     }
@@ -110,7 +137,7 @@ class NicknameSetActivity : AppCompatActivity() {
     private fun retrofitSetNick() {
         val service = RetrofitApi.nicknameSetService
 
-        service.setNickname(edt_set_nickname_write_nickname.toString().trim())
+        service.getNickname(edt_set_nickname_write_nickname.toString().trim())
             .enqueue(object : retrofit2.Callback<NicknameSetResponse> {
                 override fun onResponse(
                     call: Call<NicknameSetResponse>,

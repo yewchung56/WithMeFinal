@@ -14,15 +14,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class WriteRecruitmentActivity : AppCompatActivity() {
 
-    lateinit var viewBinding: ActivityWriteRecruitmentBinding
+    lateinit var binding: ActivityWriteRecruitmentBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityWriteRecruitmentBinding.inflate(layoutInflater)
-        setContentView(viewBinding.root)
+        binding = ActivityWriteRecruitmentBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
         val items_category = resources.getStringArray(R.array.spinner_category)
         val items_region = resources.getStringArray(R.array.spinner_region)
@@ -66,60 +66,59 @@ class WriteRecruitmentActivity : AppCompatActivity() {
 
 
         // 뷰와 어뎁터 연결
-        viewBinding.spinnerCategory.adapter = categoryAdapter
-        viewBinding.spinnerCity.adapter = regionAdapter
-
+        binding.spinnerCategory.adapter = categoryAdapter
+        binding.spinnerCity.adapter = regionAdapter
 
         // 어뎁터가 연결된 뷰를 이용해서 이벤트 설정
         // 카테고리 스피너
-        viewBinding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spinnerCategory.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                viewBinding.spinnerCity.selectedItem.toString()
+                binding.spinnerCity.selectedItem.toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                viewBinding.spinnerCategory.setSelection(0)
+                binding.spinnerCategory.setSelection(0)
             }
 
         }
 
         // 시 스피너
-        viewBinding.spinnerCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spinnerCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                viewBinding.spinnerCity.selectedItem.toString()
+                binding.spinnerCity.selectedItem.toString()
 
                 // 0을 선택했을 경우는?
-                when(viewBinding.spinnerCity.selectedItemPosition) {
-                    0 -> viewBinding.spinnerDistrict.adapter = null
-                    1 -> viewBinding.spinnerDistrict.adapter = seoulAdapter
-                    2 -> viewBinding.spinnerDistrict.adapter = busanAdapter
-                    3 -> viewBinding.spinnerDistrict.adapter = incheonAdapter
-                    4 -> viewBinding.spinnerDistrict.adapter = daeguAdapter
-                    5 -> viewBinding.spinnerDistrict.adapter = gwangjuAdapter
-                    6 -> viewBinding.spinnerDistrict.adapter = daejeonAdapter
-                    7 -> viewBinding.spinnerDistrict.adapter = ulsanAdapter
-                    8 -> viewBinding.spinnerDistrict.adapter = sejongAdapter
-                    9 -> viewBinding.spinnerDistrict.adapter = gyeonggiAdapter
-                    10 -> viewBinding.spinnerDistrict.adapter = gangwonAdapter
-                    11 -> viewBinding.spinnerDistrict.adapter = chungbukAdapter
-                    12 -> viewBinding.spinnerDistrict.adapter = chungnamAdapter
-                    13 -> viewBinding.spinnerDistrict.adapter = gyeongbukAdapter
-                    14 -> viewBinding.spinnerDistrict.adapter = gyeongnamAdapter
-                    15 -> viewBinding.spinnerDistrict.adapter = jeonbukAdapter
-                    16 -> viewBinding.spinnerDistrict.adapter = jeonnamAdapter
-                    17 -> viewBinding.spinnerDistrict.adapter = jejuAdapter
+                when(binding.spinnerCity.selectedItemPosition) {
+                    0 -> binding.spinnerDistrict.adapter = null
+                    1 -> binding.spinnerDistrict.adapter = seoulAdapter
+                    2 -> binding.spinnerDistrict.adapter = busanAdapter
+                    3 -> binding.spinnerDistrict.adapter = incheonAdapter
+                    4 -> binding.spinnerDistrict.adapter = daeguAdapter
+                    5 -> binding.spinnerDistrict.adapter = gwangjuAdapter
+                    6 -> binding.spinnerDistrict.adapter = daejeonAdapter
+                    7 -> binding.spinnerDistrict.adapter = ulsanAdapter
+                    8 -> binding.spinnerDistrict.adapter = sejongAdapter
+                    9 -> binding.spinnerDistrict.adapter = gyeonggiAdapter
+                    10 -> binding.spinnerDistrict.adapter = gangwonAdapter
+                    11 -> binding.spinnerDistrict.adapter = chungbukAdapter
+                    12 -> binding.spinnerDistrict.adapter = chungnamAdapter
+                    13 -> binding.spinnerDistrict.adapter = gyeongbukAdapter
+                    14 -> binding.spinnerDistrict.adapter = gyeongnamAdapter
+                    15 -> binding.spinnerDistrict.adapter = jeonbukAdapter
+                    16 -> binding.spinnerDistrict.adapter = jeonnamAdapter
+                    17 -> binding.spinnerDistrict.adapter = jejuAdapter
                 }
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                viewBinding.spinnerCity.setSelection(0)
+                binding.spinnerCity.setSelection(0)
             }
         }
 
         // 군 구 스피너
-        viewBinding.spinnerDistrict.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
+        binding.spinnerDistrict.onItemSelectedListener = object  : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                viewBinding.spinnerCity.selectedItem.toString()
+                binding.spinnerCity.selectedItem.toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -128,9 +127,9 @@ class WriteRecruitmentActivity : AppCompatActivity() {
 
         }
         // seekbar 값 보여주기
-        viewBinding.seekNum.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        binding.seekNum.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                viewBinding.txtFinalNum.text = progress.toString()
+                binding.txtFinalNum.text = progress.toString()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -148,34 +147,29 @@ class WriteRecruitmentActivity : AppCompatActivity() {
         }
     }
 
+    //address.add(viewBinding.spinnerCity.selectedItem.toString())
+    //val address = listOf<String>( binding.spinnerCity.selectedItem.toString(),binding.spinnerDistrict.selectedItem.toString())
     private fun retorfitWriteRec() {
+        //val address : List<WriteRecruitmentService.Addresse> = listOf(WriteRecruitmentService.Addresse("hi","hi"))
         val service = RetrofitApi.writeRecruitmentService
-
-        //address.add(viewBinding.spinnerCity.selectedItem.toString())
-        val address = listOf<String>(viewBinding.spinnerCity.selectedItem.toString(),viewBinding.spinnerDistrict.selectedItem.toString())
-
-        service.getWriteRecData(RecData(address,
-                "STUDY",
-                viewBinding.edtTitle.text.toString(),
-                "hi" ,viewBinding.edtContent.text.toString(), 3,
-                viewBinding.seekNum.progress
-        ))
-            .enqueue(object : Callback<WriteRecruitmentResponse> {
+        /*iservice.(
+        ).enqueue(object : Callback<WriteRecruitmentResponse> {
                 override fun onResponse(
                     call: Call<WriteRecruitmentResponse>,
                     response: Response<WriteRecruitmentResponse>
                 ) {
-                    if(response.isSuccessful){
+                    f(response.isSuccessful){
                         Log.d("Tag", response.body()?.success.toString())
                         Log.d("Tag", response.body()?.data?.meetId.toString())
                     }
                     else{
-                        Log.d("Tag",response.body()?.success.toString())
+                        Log.d("fail","k")
                     }
                 }
                 override fun onFailure(call: Call<WriteRecruitmentResponse>, t: Throwable) {
                     Log.d("Tag", t.message.toString())
                 }
             })
+    }*/
     }
 }

@@ -1,11 +1,12 @@
 package com.example.withmehome
 
 import android.util.Log
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.Response
+import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import java.io.IOException
@@ -16,9 +17,12 @@ object RetrofitApi {
     class AppInterceptor : Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
-            val token = "Bearer 35Vu7VBqtRgBQ9GjdIt9onYS03yXuAP28R2HLRMxKVO9wrEdJ5Fj8y0r3b6I7QJYjApZG3JuOA28YUDjwkdYqOxj2s3f94DdQjww"
+
+            /*val addresses : ArrayList<String>*/
+            val token = "Bearer " +
+                    "eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJ5ZXdjaHVuZzU2QG5hdmVyLmNvbSIsImlhdCI6MTY3NjM3Nzk2MCwiZXhwIjoxNjc2OTgyNzYwfQ.azTwqcfLv0mtnexeDIFBuWHFv5WroVNqS5I7EcIr_wQ"
             val newRequest = request().newBuilder()
-                .addHeader("Authorization", token)
+                .addHeader("Authorization",token)
                 .build()
             proceed(newRequest)
         }
@@ -28,12 +32,13 @@ object RetrofitApi {
             }*/
     val okHttpClient = OkHttpClient.Builder().addInterceptor(AppInterceptor())
             .build()
-
+    val jsonObject = JSONObject()
+    val requestBody = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonObject.toString())
     // Builder 패턴을 통해 retrofit 객체 생성
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
-            .client(okHttpClient)
+            .client(okHttpClient )
             .baseUrl(BASE_URL)
             .build()
     }
@@ -42,9 +47,9 @@ object RetrofitApi {
     val nicknameDupService: NicknameDupService by lazy {
         retrofit.create(NicknameDupService::class.java)
     }
-    val writeRecruitmentService: WriteRecruitmentService by lazy {
-        retrofit.create(WriteRecruitmentService::class.java)
-    }
+//    val writeRecruitmentService: MeetFormRequest by lazy {
+//        retrofit.create(MeetFormRequest::class.java)
+//    }
 
     val nicknameSetService: NicknameSetService by lazy {
         retrofit.create(NicknameSetService::class.java)
@@ -56,7 +61,8 @@ object RetrofitApi {
     val recruitListService: RecruitListService by lazy {
         retrofit.create(RecruitListService::class.java)
     }
+    val recruitmentDetailService : RecruimentDetailService by lazy {
+        retrofit.create(RecruimentDetailService::class.java)
+    }
 }
-
-
 
