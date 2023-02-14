@@ -35,23 +35,24 @@ class ExtraFragment:Fragment(), View.OnClickListener {
         binding!!.recyclerViewextra.adapter = adapter
         binding!!.recyclerViewextra.layoutManager = LinearLayoutManager(activity)
 
-        var WriteRecruitmentActivity = layoutInflater.inflate(R.layout.fragment_extra,container, false)
-        val btn = WriteRecruitmentActivity.findViewById<Button>(R.id.buttonallextra)
-        list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
-        btn.setOnClickListener {
-            ArrayList<Userdata>()?.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
-            //adapter.notifyItemInserted(ArrayList<Userdata>().size)
-            RecruitListShow()
-        }
+        var extraFragment = layoutInflater.inflate(R.layout.fragment_extra,container, false)
 
+
+        val btn = extraFragment.findViewById<Button>(R.id.buttonallextra)
+        list.add(Userdata("미라클 모닝 8주 도전", "김써니", "2/15","5",multi_type6,"  기타"))
+        btn.setOnClickListener{
+                adapter.setData(list)
+                RecruitListShow()
+        }
 
         return binding.root
 
-        val btn_event= WriteRecruitmentActivity.findViewById<Button>(R.id.extra)
+        val btn_event= extraFragment.findViewById<Button>(R.id.extra)
         btn_event.setOnClickListener{
             val intent = Intent(getActivity(), WriteRecruitmentActivity::class.java)
             startActivity(intent)
         }
+
 
 
     }
@@ -75,8 +76,9 @@ class ExtraFragment:Fragment(), View.OnClickListener {
                     startActivity(intent)
                 }
                 R.id.buttonallextra ->{
-                    ArrayList<Userdata>().add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
-                    //adapter.notifyItemInserted(ArrayList<Userdata>().size)
+                    val list = ArrayList<Userdata>()
+                    list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
+                    adapter.setData(list)
                     RecruitListShow()
                 }
             }

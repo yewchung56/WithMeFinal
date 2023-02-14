@@ -36,6 +36,13 @@ class MypgActivity : AppCompatActivity() {
 
 
         var nickname = findViewById<TextView>(R.id.txt_user_name)
+        var email = findViewById<TextView>(R.id.txt_user_address)
+
+        UserApiClient.instance.me { user, error ->
+            nickname.text = "${user?.kakaoAccount?.profile?.nickname}"
+            email.text = "${user?.kakaoAccount?.email}"
+            Log.d("닉네임:","${user?.kakaoAccount?.email}")
+        }
 
 
 

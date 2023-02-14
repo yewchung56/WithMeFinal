@@ -18,7 +18,7 @@ import java.net.URL
 interface WriteRecruitmentService {
 
     @POST("/api/meets")
-    @Headers("accept: application/json", "content-type: application/json")
+    @Headers("accept: application/json", "Content-type: application/json")
     fun getWriteRecData(@Body jsonparams: RecData )
         /*@Body addresses: Addresses,
                         @Body meetCategory: String,

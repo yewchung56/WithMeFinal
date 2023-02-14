@@ -13,19 +13,19 @@ import com.example.withmehome.databinding.FragmentNowBinding
 
 class NowFragment:Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentNowBinding
-    private lateinit var adapter: meetRecyclerItemAdapter
+    private lateinit var adapter: meetRecyclerItemAdapter2
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val list = mutableListOf<meetUserdata>()
-        list.add(meetUserdata("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "00"))
-        list.add(meetUserdata("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "00"))
-        list.add(meetUserdata("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "00"))
+        val list = mutableListOf<meetUserdata2>()
+        list.add(meetUserdata2("우리은행 면접 스터디 구함당", "곰도리", "23.02.20 ~ 23.03.30", "5", multi_type1,"스터디"))
+        list.add(meetUserdata2("걷기 달리기 운동습관 모임", "머슬퀸S2", "23.02.20 ~ 23.03.30", "6", multi_type2,"  운동"))
+        list.add(meetUserdata2("CS스터디 구해요", "포메예용", "23.02.20 ~ 23.03.30", "6", multi_type3, "스터디"))
         binding = FragmentNowBinding.inflate(inflater, container,false)
-        adapter = meetRecyclerItemAdapter(list)
+        adapter = meetRecyclerItemAdapter2(list)
         adapter.setHasStableIds(true)
         binding!!.recyclerViewnow.adapter = adapter
         binding!!.recyclerViewnow.layoutManager = LinearLayoutManager(activity)

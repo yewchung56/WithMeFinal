@@ -24,6 +24,7 @@ class TravelFragment:Fragment(), View.OnClickListener {
         val list = mutableListOf<Userdata>()
         val Activity = layoutInflater.inflate(R.layout.activity_recruitment_detail,container,false)
         val event = Activity.findViewById<Button>(R.id.recruit_end)
+        list.add(Userdata("MZ세대들의 카페&맛집 탐방", "유후잉", "2/15","3",multi_type5,"  여행"))
         event.setOnClickListener {
             list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
             adapter.notifyDataSetChanged()

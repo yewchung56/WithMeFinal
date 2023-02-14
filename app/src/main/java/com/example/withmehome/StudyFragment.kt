@@ -22,6 +22,8 @@ class StudyFragment:Fragment(), View.OnClickListener {
         val list = mutableListOf<Userdata>()
         val Activity = layoutInflater.inflate(R.layout.activity_recruitment_detail,container,false)
         val event = Activity.findViewById<Button>(R.id.recruit_end)
+        list.add(Userdata("우리은행 면접 스터디 구함당", "곰도리", "2/15","3",multi_type1,"스터디"))
+        list.add(Userdata("CS스터디 구해요", "포메예용", "2/15","5",multi_type2,"스터디"))
         event.setOnClickListener {
             list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
             adapter.notifyDataSetChanged()
