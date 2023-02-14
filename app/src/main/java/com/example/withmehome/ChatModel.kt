@@ -1,4 +1,4 @@
 package com.example.withmehome
 
-class ChatModel (val script: String, val date_time : String, val senderId : String){
+data class ChatModel (val script: String, val date_time : String, val senderId : String){
 }
