@@ -22,9 +22,8 @@ class LikeFragment:Fragment() {
     ): View? {
 
         val list = mutableListOf<LUserdata>()
-        list.add(LUserdata("모집글 제목", "사용자 이름", "00/00 00:00", "3"))
-        list.add(LUserdata("모집글 제목", "사용자 이름", "00/00 00:00", "3"))
-        list.add(LUserdata("모집글 제목", "사용자 이름", "00/00 00:00", "3"))
+        list.add(LUserdata("우리은행 면접 스터디 구함당", "곰도리", "2/15","3",multi_type1,"스터디"))
+        list.add(LUserdata("CS스터디 구해요", "포메예용", "2/15","5",multi_type2,"스터디"))
         binding = FragmentLikeBinding.inflate(inflater, container,false)
         adapter = LikeRecyclerItemAdapter(list)
         adapter.setHasStableIds(true)
