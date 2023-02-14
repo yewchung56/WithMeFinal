@@ -12,9 +12,9 @@ data class RecData(
     var maxPeople: Int? = null
 )
 
-data class Addresses (
+/*data class Addresses (
     var sido : String?=null,
     var sgg : String?=null
-)
+)*/
 
 

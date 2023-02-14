@@ -5,11 +5,12 @@ import com.squareup.moshi.Json
 
 data class LoginData(
     @Json(name = "data")
-    val `data`: LoginAcessData?,
+    val `data`: LoginAccessData?,
     @Json(name = "success")
     val success: Boolean?
 )
-data class LoginAcessData(
+
+data class LoginAccessData(
     @Json(name = "accessToken")
     val accessToken: String?,
     @Json(name = "addressExistence")

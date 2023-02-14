@@ -4,30 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recruitment_detail_deadline">
+    android:orientation="vertical"
+    tools:context=".RecruitmentDetailActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/recruitment_detail_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#75DECD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:minHeight="?attr/actionBarSize"
-        app:contentInsetStart="0dp">
+        app:contentInsetStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="78dp"
             android:layout_height="23dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10.53dp"
-            android:text="모집글 상세"
-            android:fontFamily="@font/notosanskr_bold"
-            android:textFontWeight="700"
-            android:textSize="16sp"
-            android:textColor="#FFFFFF"
-            android:letterSpacing="-0.03"
-            android:includeFontPadding="false"
+            android:fontFamily="@font/notosanskr_regular"
             android:gravity="center"
-            android:layout_gravity="center"/>
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.03"
+            android:text="모집글 상세"
+            android:textColor="#FFFFFF"
+            android:textFontWeight="700"
+            android:textSize="16sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -37,10 +39,10 @@
         android:layout_height="37dp"
         android:layout_marginStart="16.05dp"
         android:layout_marginTop="68dp"
-        android:fontFamily="@font/notosanskr_medium"
+        android:fontFamily="@font/notosanskr_regular"
         android:includeFontPadding="false"
         android:letterSpacing="-0.03"
-        android:text="@string/recruitment_detail_title"
+        android:text="CS스터디 구해요 ✋✋"
         android:textColor="#373839"
         android:textFontWeight="700"
         android:textSize="16sp"
@@ -56,12 +58,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="48dp"
+            android:layout_width="58dp"
             android:layout_height="12dp"
             android:fontFamily="@font/eng_num_font"
             android:includeFontPadding="false"
             android:letterSpacing="-0.03"
-            android:text="@string/recruitment_detail_date"
+            android:text="01/12 23:30"
             android:textColor="#BBBBBB"
             android:textSize="10sp" />
 
@@ -114,18 +116,18 @@
         <ImageView
             android:id="@+id/recruitment_detail_userphoto"
             android:layout_width="40dp"
-            android:layout_height="40dp"/>
+            android:layout_height="40dp"
+            android:src="@drawable/cs" />
 
         <TextView
-            android:id="@+id/txt_user_name"
-            android:layout_width="38dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="9.1dp"
             android:fontFamily="@font/notosanskr_regular"
             android:gravity="top"
             android:includeFontPadding="false"
             android:letterSpacing="-0.03"
-            android:text="김써니"
+            android:text="포메예용"
             android:textColor="#373839"
             android:textSize="14dp" />
 
@@ -140,7 +142,7 @@
 
     <TextView
         android:id="@+id/recruitment_detail_region"
-        android:layout_width="37.74dp"
+        android:layout_width="wrap_content"
         android:layout_height="14.58dp"
         android:layout_marginStart="60.44dp"
         android:layout_marginTop="155.8dp"
@@ -148,7 +150,7 @@
         android:fontFamily="@font/notosanskr_regular"
         android:gravity="center_horizontal|top"
         android:includeFontPadding="false"
-        android:text="@string/recruitment_detail_region"
+        android:text="서울특별시 중랑구"
         android:textColor="#737373"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -219,7 +221,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="57dp"
+        android:layout_width="wrap_content"
         android:layout_height="17dp"
         android:layout_marginStart="47.52dp"
         android:layout_marginTop="208.04dp"
@@ -227,7 +229,7 @@
         android:gravity="center_horizontal|top"
         android:includeFontPadding="false"
         android:letterSpacing="-0.03"
-        android:text="@string/recruitment_detail_area"
+        android:text="서울특별시 중랑구"
         android:textColor="#737373"
         android:textFontWeight="400"
         android:textSize="12sp"
@@ -283,7 +285,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imagedivider"
         android:layout_width="380dp"
         android:layout_height="0dp"
         android:layout_marginStart="15.95dp"
@@ -300,7 +302,8 @@
         android:layout_height="120dp"
         android:layout_marginStart="15.73dp"
         android:layout_marginTop="312.22dp"
-        android:text="다다음주 우리은행 면접 스터디 팀원 구합니다!\n중간에 빠지지 않고 성실하게 임하실 분 구해요~\n자세한 계획은 같이 얘기해보면서 정하면 좋을 것 같아요\n관심있으신 분은 우선 쪽지 주세요!\n오픈채팅방 비번 알려드릴게요~~"
+        android:text="다다음주 CS스터디 팀원 구합니다!
+        \n자세한 계획은 같이 얘기해보면서 정하면 좋을 것 같아요\n연락 바랍니다."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:fontFamily="@font/notosanskr_regular"
@@ -313,6 +316,25 @@
         android:textColor="#373839"
         android:includeFontPadding="false"
         />
+
+
+
+    <!--<android.widget.Button
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="63.61dp"
+        android:layout_marginEnd="16.37dp"
+        android:layout_marginBottom="23.37dp"
+        android:background="@drawable/recruitment_detail_rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="쪽지 보내기"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/notosanskr_regular"
+        android:textFontWeight="500"
+        android:textSize="15sp"
+        android:letterSpacing="-0.03"
+        android:includeFontPadding="false"/>-->
 
     <ImageView
         android:layout_width="350dp"
@@ -335,6 +357,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -93,7 +93,7 @@ class ExtraFragment:Fragment(), View.OnClickListener {
                     response: Response<ListShowResponse>
                 ) {
                     if (response.isSuccessful){
-                        Log.d("tokeeeeeen", response.body()?.success.toString())
+                        Log.d("tokeeeeeen", response.body()?.data.toString())
                     }
                 }
                 override fun onFailure(call: Call<ListShowResponse>, t: Throwable) {

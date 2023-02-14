@@ -175,8 +175,7 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
                 (holder as MultiViewHolder3).bind(items[position])
                 holder.setIsRecyclable(false)
             }
-            multi_type4 -> {
-            (holder as MultiViewHolder4).bind(items[position])
+            multi_type4 -> { (holder as MultiViewHolder4).bind(items[position])
             holder.setIsRecyclable(false)
             }
             multi_type5 -> {
