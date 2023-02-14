@@ -24,7 +24,7 @@ class Rev_RecyclerView(var items: List<ProfileRevData>): RecyclerView.Adapter<Re
     }
 
     override fun getItemCount(): Int {
-        return 5
+        return 2
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

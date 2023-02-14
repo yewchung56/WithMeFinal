@@ -23,7 +23,7 @@
             android:name=".LeaveMessageActivity"
             android:exported="false" />
         <activity
-            android:name=".LeaveMessage"
+            android:name=".ReviewActivity"
             android:exported="false" />
         <activity
             android:name=".ManageinfoActivity"
@@ -128,6 +128,9 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LikeActivity"
             android:exported="false" />
         <activity
             android:name=".sharing_message"
