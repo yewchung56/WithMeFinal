@@ -16,7 +16,7 @@ object RetrofitApi {
     class AppInterceptor : Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
-            val token = "Bearer eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiJ5ZXdjaHVuZzU2QG5hdmVyLmNvbSIsImlhdCI6MTY3NjIxOTI1NywiZXhwIjoxNjc2ODI0MDU3fQ.yo2vM0mkniitNk0hsS6Aqb7d0iYjtNyoj0CQp6SZ-Cc"
+            val token = "Bearer 35Vu7VBqtRgBQ9GjdIt9onYS03yXuAP28R2HLRMxKVO9wrEdJ5Fj8y0r3b6I7QJYjApZG3JuOA28YUDjwkdYqOxj2s3f94DdQjww"
             val newRequest = request().newBuilder()
                 .addHeader("Authorization", token)
                 .build()
