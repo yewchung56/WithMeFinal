@@ -6,10 +6,10 @@
     android:layout_height="100dp" >
 
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/imgUser_icon"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:src="@drawable/main_img1"
+        android:src = "@drawable/main_img2"
         android:layout_marginStart="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:textColor="#737373"
         android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img"
+        app:layout_constraintStart_toEndOf="@+id/imgUser_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.164" />
 
@@ -40,7 +40,7 @@
         android:textColor="#373839"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img" />
+        app:layout_constraintStart_toEndOf="@+id/imgUser_icon" />
 
     <TextView
         android:id="@+id/date"
@@ -51,7 +51,7 @@
         android:textColor="#BBBBBB"
         android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img"
+        app:layout_constraintStart_toEndOf="@+id/imgUser_icon"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <ImageView
@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/date"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        app:srcCompat="@drawable/img_2" />
+        app:srcCompat="@drawable/img" />
 
     <TextView
         android:id="@+id/like"
@@ -76,8 +76,8 @@
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <TextView
-        android:id="@+id/recruit"
+    <Button
+        android:id="@+id/button"
         android:layout_width="44dp"
         android:layout_height="18dp"
         android:layout_marginEnd="65dp"
@@ -86,13 +86,11 @@
         android:text="모집중"
         android:textColor="@color/white"
         android:textSize="9dp"
-        android:paddingLeft="9.5dp"
-        android:paddingTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/category"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="44dp"
         android:layout_height="18dp"
         android:layout_marginEnd="8dp"
@@ -101,11 +99,9 @@
         android:text="스터디"
         android:textColor="#737373"
         android:textSize="9dp"
-        android:paddingLeft="9.5dp"
-        android:paddingTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/recruit" />
+        app:layout_constraintStart_toEndOf="@+id/button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

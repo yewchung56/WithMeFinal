@@ -22,9 +22,8 @@ class MessageFragment:Fragment() {
     ): View? {
         // 데이터
         val list = mutableListOf<MUserdata>()
-        for (i in 0..5) {
-            list.add(MUserdata("작성자 이름", "쪽지 내용이 여기에 표시됩니다.", "0000.00.00"))
-        }
+
+        list.add(MUserdata("우루과이과우루", "네 감사합니다! 좋은 하루 보내세요!!", "1/09 14:49"))
         binding = FragmentMessageBinding.inflate(inflater, container, false)
 
         val adapter = MRecyclerItemAdapter(list)

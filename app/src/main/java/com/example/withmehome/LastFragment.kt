@@ -22,11 +22,9 @@ class LastFragment:Fragment(), View.OnClickListener {
     ): View? {
 
         val list = mutableListOf<meetUserdata2>()
-        list.add(meetUserdata2("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "3", multi_type1))
-        list.add(meetUserdata2("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "3", multi_type2))
-        list.add(meetUserdata2("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "3", multi_type2))
-        list.add(meetUserdata2("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "3", multi_type1))
-        list.add(meetUserdata2("모집글 제목", "사용자 이름", "00.00.00 ~ 00.00.00", "3", multi_type1))
+        list.add(meetUserdata2("전시회 같이 가실분!", "마네모네", "23.01.20 ~ 23.01.30","5" , multi_type4, "취미"))
+        list.add(meetUserdata2("MZ세대들의 카페&맛집 탐방", "유후잉", "23.01.20 ~ 23.01.30", "5", multi_type5,"여행"))
+        list.add(meetUserdata2("미라클 모닝 8주 도전", "김써니", "23.01.20 ~ 23.01.30", "5", multi_type6,"  기타"))
         binding = FragmentLastBinding.inflate(inflater, container,false)
         adapter = meetRecyclerItemAdapter2(list)
         adapter.setHasStableIds(true)

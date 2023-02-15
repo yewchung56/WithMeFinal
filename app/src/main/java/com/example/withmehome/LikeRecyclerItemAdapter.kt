@@ -1,9 +1,11 @@
 package com.example.withmehome
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.withmehome.databinding.ItemViewlikeBinding
+import com.example.withmehome.databinding.ItemViewmessageBinding
 
 
 class LikeRecyclerItemAdapter(var items: List<LUserdata>) : RecyclerView.Adapter<LikeRecyclerItemAdapter.ViewHolder>() {
@@ -11,11 +13,15 @@ class LikeRecyclerItemAdapter(var items: List<LUserdata>) : RecyclerView.Adapter
     private lateinit var itemBinding: ItemViewlikeBinding
 
     inner class ViewHolder(private val itemBinding: ItemViewlikeBinding): RecyclerView.ViewHolder(itemBinding.root){
+        private val context = itemBinding.root.context
         fun bind(data: LUserdata){
             itemBinding.title.text = data.title
             itemBinding.name.text = data.name
             itemBinding.date.text = data.date
             itemBinding.like.text = data.like
+
+
+
         }
     }
 

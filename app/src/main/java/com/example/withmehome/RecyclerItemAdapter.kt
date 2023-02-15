@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.withmehome.databinding.ActivityRecruitmentDetailCsBinding
 import com.example.withmehome.databinding.ActivityWriteRecruitmentBinding
 import com.example.withmehome.databinding.ItemView2Binding
 import com.example.withmehome.databinding.ItemView3Binding
@@ -54,8 +55,8 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
             itemBinding2.category.text = data.category
 
             itemView.setOnClickListener{
-                val intent = Intent(context2, RecruitmentDetailActivity::class.java)
-                intent.run { context2.startActivity(this) }
+                val intent2 = Intent(context2, RecruitcsActivity::class.java)
+                intent2.run { context2.startActivity(this) }
             }
         }
     }
@@ -69,8 +70,8 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
             itemBinding3.category.text = data.category
 
             itemView.setOnClickListener{
-                val intent = Intent(context3, RecruitmentDetailActivity::class.java)
-                intent.run { context3.startActivity(this) }
+                val intent3 = Intent(context3, RecruitwalkActivity::class.java)
+                intent3.run { context3.startActivity(this) }
             }
         }
     }
@@ -84,8 +85,8 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
             itemBinding4.category.text = data.category
 
             itemView.setOnClickListener{
-                val intent = Intent(context4, RecruitmentDetailActivity::class.java)
-                intent.run { context4.startActivity(this) }
+                val intent4 = Intent(context4, RecruitlookActivity::class.java)
+                intent4.run { context4.startActivity(this) }
             }
         }
     }
@@ -99,8 +100,8 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
             itemBinding5.category.text = data.category
 
             itemView.setOnClickListener{
-                val intent = Intent(context5, RecruitmentDetailActivity::class.java)
-                intent.run { context5.startActivity(this) }
+                val intent5 = Intent(context5, RecruittripActivity::class.java)
+                intent5.run { context5.startActivity(this) }
             }
         }
     }
@@ -114,8 +115,8 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
             itemBinding6.category.text = data.category
 
             itemView.setOnClickListener{
-                val intent = Intent(context6, RecruitmentDetailActivity::class.java)
-                intent.run { context6.startActivity(this) }
+                val intent6 = Intent(context6, RecruitetcActivity::class.java)
+                intent6.run { context6.startActivity(this) }
             }
         }
     }
@@ -175,9 +176,8 @@ class RecyclerItemAdapter(var items: List<Userdata>) : RecyclerView.Adapter<View
                 (holder as MultiViewHolder3).bind(items[position])
                 holder.setIsRecyclable(false)
             }
-            multi_type4 -> {
-                (holder as MultiViewHolder4).bind(items[position])
-                holder.setIsRecyclable(false)
+            multi_type4 -> { (holder as MultiViewHolder4).bind(items[position])
+            holder.setIsRecyclable(false)
             }
             multi_type5 -> {
                 (holder as MultiViewHolder5).bind(items[position])

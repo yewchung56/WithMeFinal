@@ -22,6 +22,7 @@ class SportFragment:Fragment(), View.OnClickListener  {
         val list = mutableListOf<Userdata>()
         val Activity = layoutInflater.inflate(R.layout.activity_recruitment_detail,container,false)
         val event = Activity.findViewById<Button>(R.id.recruit_end)
+        list.add(Userdata("걷기 달리기 운동습관 모임", "머슬퀸S2", "2/15","5",multi_type3,"  운동"))
         event.setOnClickListener {
             list.add(Userdata("모집글 제목", "사용자 이름", "00/00 00:00","3",multi_type2,"  기타"))
             adapter.notifyDataSetChanged()

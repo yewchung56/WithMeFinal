@@ -38,8 +38,10 @@ class MypgActivity : AppCompatActivity() {
 
         var nickname = findViewById<TextView>(R.id.txt_user_name)
         var email = findViewById<TextView>(R.id.txt_user_address)
+
         val imageView = findViewById<ImageView>(R.id.img_user)
         val defaultImage = R.drawable.ic_recruitment_detail_photo
+
 
 
 
@@ -80,6 +82,9 @@ class MypgActivity : AppCompatActivity() {
 
         btn_wishlist.setOnClickListener {
             startActivity(Intent(this, LikeActivity::class.java))
+        }
+        btn_review_list.setOnClickListener {
+            startActivity(Intent(this, ReviewActivity::class.java))
         }
 
         btn_logout.setOnClickListener {
